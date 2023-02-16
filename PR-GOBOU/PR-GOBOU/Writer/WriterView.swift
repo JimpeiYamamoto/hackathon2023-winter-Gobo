@@ -72,6 +72,7 @@ struct WriterView: View {
                         .frame(height: 300)
                         .frame(width: UIScreen.main.bounds.width/10*9)
                 }
+                
             }
         }
     }
