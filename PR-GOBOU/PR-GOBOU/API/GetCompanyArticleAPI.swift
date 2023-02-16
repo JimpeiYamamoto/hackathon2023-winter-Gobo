@@ -1,5 +1,5 @@
 //
-//  GetArticleAPI.swift
+//  GetCompantArticleAPI.swift
 //  PR-GOBOU
 //
 //  Created by 上別縄祐也 on 2023/02/16.
@@ -7,13 +7,14 @@
 
 import Foundation
 
-class GetArticleAPI {
+class GetCompanyArticleAPI: ObservableObject{
+    @Published var companyArticleList = [Article]()
+    
     let host = "https://hackathon.stg-prtimes.net/api/"
     let token = "b655dffbe1b2c82ca882874670cb110995c6604151e1b781cf5c362563eb4e12"
-    
-    func getLatestArticleApi(){
-        let decoder = JSONDecoder()
-        var components: URLComponents = URLComponents(string: host + "releases")!
+   
+    func getCompanyArticleApi(id: String){
+        var components: URLComponents = URLComponents(string: host + "companies/" + id + "/releases")!
         components.queryItems = [
             URLQueryItem(name: "per_page", value: "100"),
             URLQueryItem(name: "page", value: "1")
@@ -48,15 +49,12 @@ class GetArticleAPI {
                 return
             }
                 do {
-                    let json = try decoder.decode(.self, from: data)
-                    
-                    self?.rankingList = json.rankingList
+                    self!.companyArticleList = try decoder.decode([Article].self, from: data)
+                    print("success")
                 } catch (let error) {
                     print("fail to decode")
                     print(error)
                 }
-
-            
         })
         task.resume()
     }
