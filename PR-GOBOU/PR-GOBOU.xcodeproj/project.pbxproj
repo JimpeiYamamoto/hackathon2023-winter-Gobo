@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4B54E217299DF75900F0305B /* RegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E216299DF75900F0305B /* RegionView.swift */; };
+		4B54E219299DFEEF00F0305B /* GetArticleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E218299DFEEF00F0305B /* GetArticleAPI.swift */; };
+		4B54E21B299E241600F0305B /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E21A299E241600F0305B /* Article.swift */; };
+		4B54E222299E305800F0305B /* GetCompanyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E221299E305800F0305B /* GetCompanyAPI.swift */; };
+		4B54E224299E310100F0305B /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E223299E310100F0305B /* Company.swift */; };
+		4B54E226299E31CA00F0305B /* GetCompanyArticleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E225299E31CA00F0305B /* GetCompanyArticleAPI.swift */; };
+		4B54E228299E32D200F0305B /* GetRegionArticleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E227299E32D200F0305B /* GetRegionArticleAPI.swift */; };
+		4B54E22A299E337F00F0305B /* GetRegionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E229299E337F00F0305B /* GetRegionAPI.swift */; };
+		4B54E22C299E342000F0305B /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E22B299E342000F0305B /* Region.swift */; };
 		4B8D5058299DCA02004BA7F9 /* PR_GOBOUApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D5057299DCA02004BA7F9 /* PR_GOBOUApp.swift */; };
 		4B8D505A299DCA02004BA7F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D5059299DCA02004BA7F9 /* ContentView.swift */; };
 		4B8D505C299DCA03004BA7F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B8D505B299DCA03004BA7F9 /* Assets.xcassets */; };
@@ -19,7 +27,6 @@
 		4B8D5086299DCCD1004BA7F9 /* WriterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D5085299DCCD1004BA7F9 /* WriterView.swift */; };
 		4B8D5088299DD63B004BA7F9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D5087299DD63B004BA7F9 /* HomeView.swift */; };
 		4B8D508A299DD6B9004BA7F9 /* RankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D5089299DD6B9004BA7F9 /* RankingView.swift */; };
-		73DD2B91299E036100E64644 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD2B90299E036100E64644 /* Article.swift */; };
 		73DD2B93299E03DF00E64644 /* Reputation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD2B92299E03DF00E64644 /* Reputation.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +49,14 @@
 
 /* Begin PBXFileReference section */
 		4B54E216299DF75900F0305B /* RegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionView.swift; sourceTree = "<group>"; };
+		4B54E218299DFEEF00F0305B /* GetArticleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArticleAPI.swift; sourceTree = "<group>"; };
+		4B54E21A299E241600F0305B /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		4B54E221299E305800F0305B /* GetCompanyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCompanyAPI.swift; sourceTree = "<group>"; };
+		4B54E223299E310100F0305B /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		4B54E225299E31CA00F0305B /* GetCompanyArticleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCompanyArticleAPI.swift; sourceTree = "<group>"; };
+		4B54E227299E32D200F0305B /* GetRegionArticleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRegionArticleAPI.swift; sourceTree = "<group>"; };
+		4B54E229299E337F00F0305B /* GetRegionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRegionAPI.swift; sourceTree = "<group>"; };
+		4B54E22B299E342000F0305B /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		4B8D5054299DCA02004BA7F9 /* PR-GOBOU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PR-GOBOU.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8D5057299DCA02004BA7F9 /* PR_GOBOUApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PR_GOBOUApp.swift; sourceTree = "<group>"; };
 		4B8D5059299DCA02004BA7F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,7 +71,6 @@
 		4B8D5085299DCCD1004BA7F9 /* WriterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterView.swift; sourceTree = "<group>"; };
 		4B8D5087299DD63B004BA7F9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4B8D5089299DD6B9004BA7F9 /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
-		73DD2B90299E036100E64644 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		73DD2B92299E03DF00E64644 /* Reputation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reputation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +99,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B54E21E299E2ADF00F0305B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4B54E218299DFEEF00F0305B /* GetArticleAPI.swift */,
+				4B54E221299E305800F0305B /* GetCompanyAPI.swift */,
+				4B54E225299E31CA00F0305B /* GetCompanyArticleAPI.swift */,
+				4B54E229299E337F00F0305B /* GetRegionAPI.swift */,
+				4B54E227299E32D200F0305B /* GetRegionArticleAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		4B8D504B299DCA01004BA7F9 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +136,7 @@
 			children = (
 				4B8D5057299DCA02004BA7F9 /* PR_GOBOUApp.swift */,
 				4B8D5059299DCA02004BA7F9 /* ContentView.swift */,
+				4B54E21E299E2ADF00F0305B /* API */,
 				73DD2B8F299E034000E64644 /* Model */,
 				4B8D5081299DCBD6004BA7F9 /* Viewer */,
 				4B8D5084299DCC1C004BA7F9 /* Writer */,
@@ -166,8 +193,10 @@
 		73DD2B8F299E034000E64644 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				73DD2B90299E036100E64644 /* Article.swift */,
 				73DD2B92299E03DF00E64644 /* Reputation.swift */,
+				4B54E21A299E241600F0305B /* Article.swift */,
+				4B54E223299E310100F0305B /* Company.swift */,
+				4B54E22B299E342000F0305B /* Region.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,13 +331,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B54E21B299E241600F0305B /* Article.swift in Sources */,
+				4B54E228299E32D200F0305B /* GetRegionArticleAPI.swift in Sources */,
+				4B54E224299E310100F0305B /* Company.swift in Sources */,
+				4B54E226299E31CA00F0305B /* GetCompanyArticleAPI.swift in Sources */,
 				4B8D5083299DCC04004BA7F9 /* ViewerView.swift in Sources */,
 				4B8D5086299DCCD1004BA7F9 /* WriterView.swift in Sources */,
 				73DD2B93299E03DF00E64644 /* Reputation.swift in Sources */,
 				4B8D5088299DD63B004BA7F9 /* HomeView.swift in Sources */,
 				4B54E217299DF75900F0305B /* RegionView.swift in Sources */,
-				73DD2B91299E036100E64644 /* Article.swift in Sources */,
+				4B54E222299E305800F0305B /* GetCompanyAPI.swift in Sources */,
+				4B54E219299DFEEF00F0305B /* GetArticleAPI.swift in Sources */,
+				4B54E22C299E342000F0305B /* Region.swift in Sources */,
 				4B8D505A299DCA02004BA7F9 /* ContentView.swift in Sources */,
+				4B54E22A299E337F00F0305B /* GetRegionAPI.swift in Sources */,
 				4B8D5058299DCA02004BA7F9 /* PR_GOBOUApp.swift in Sources */,
 				4B8D508A299DD6B9004BA7F9 /* RankingView.swift in Sources */,
 			);
