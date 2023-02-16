@@ -8,6 +8,15 @@
         "branch" : "main",
         "revision" : "c41b581b53fdf643595a3a9c193bc155847d1840"
       }
+    },
+    {
+      "identity" : "richtext",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NuPlay/RichText.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "6bd367cba5a8245a4229b71317ef232da8e57f4e"
+      }
     }
   ],
   "version" : 2
