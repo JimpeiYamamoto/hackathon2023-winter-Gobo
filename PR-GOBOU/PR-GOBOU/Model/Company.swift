@@ -8,6 +8,6 @@
 import Foundation
 
 struct Company: Codable {
-    let companyId: Int?
-    let companyName: String?
+    let company_id: Int?
+    let company_name: String?
 }

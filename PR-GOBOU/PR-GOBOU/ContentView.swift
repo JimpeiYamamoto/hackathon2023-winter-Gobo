@@ -41,12 +41,22 @@ struct ContentView: View {
                             }.tag(1)
                     }.padding(.bottom)
                 }
-                
                 .navigationBarItems(
-                        leading: Image(systemName: "person.fill").foregroundColor(.white),
-                        trailing: Image(systemName: "magnifyingglass")
-                            .foregroundColor(.white))
-                    //.toolbarBackground(.blue, for: .navigationBar)
+                    leading: NavigationLink(
+                        destination: SettingView(),
+                        label: {
+                            Image(systemName: "person.fill")
+                                .foregroundColor(.white)
+                        }
+                    ),
+                    trailing: NavigationLink(
+                        destination: EmptyView(),
+                        label: {
+                            Image(systemName: "magnifyingglass")
+                                .foregroundColor(.white)
+                            
+                        })
+                )
             }
             Image("PRTimes_Logo")
         }
