@@ -19,20 +19,20 @@ struct RankRowView: View {
         HStack(alignment: .top) {
             Text(String(rank))
                 .font(.title2)
-                .padding(.top, 10)
+                .padding(.top, 7)
                 .padding(.trailing, 15)
             
             VStack(alignment: .leading) {
                 HStack {
                     Text(title)
-                        .padding(.top, 10)
+                        .padding(.top, 7)
                         .font(.body)
                     Spacer()
                     AsyncImage(url: URL(string: imgUrl)) { image in
                         image.resizable()
                             .scaledToFit()
                             .frame(width: UIScreen.main.bounds.width / 4)
-                            .padding(.top, 10)
+                            .padding(.top, 7)
                         
                     } placeholder: {
                         ProgressView()
