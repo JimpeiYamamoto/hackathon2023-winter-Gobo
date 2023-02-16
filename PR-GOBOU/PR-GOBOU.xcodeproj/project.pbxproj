@@ -140,6 +140,7 @@
 				73DD2B8F299E034000E64644 /* Model */,
 				4B8D5081299DCBD6004BA7F9 /* Viewer */,
 				4B8D5084299DCC1C004BA7F9 /* Writer */,
+				736AF60E299E2D8D001C75BE /* Setting */,
 				4B8D505B299DCA03004BA7F9 /* Assets.xcassets */,
 				4B8D505D299DCA03004BA7F9 /* Preview Content */,
 			);
@@ -188,6 +189,14 @@
 				4B8D5085299DCCD1004BA7F9 /* WriterView.swift */,
 			);
 			path = Writer;
+			sourceTree = "<group>";
+		};
+		736AF60E299E2D8D001C75BE /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				736AF60F299E2DBA001C75BE /* FollowCompanyView.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		73DD2B8F299E034000E64644 /* Model */ = {
