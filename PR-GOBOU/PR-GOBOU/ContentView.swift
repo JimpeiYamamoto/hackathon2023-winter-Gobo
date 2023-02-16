@@ -12,17 +12,17 @@ struct ContentView: View {
     var body: some View {
         VStack{
             TabView(selection: $tabIndex){
-                HomeView().tabItem{
+                ViewerView().tabItem{
                     Group{
                         Image(systemName: "house")
-                        Text("Home")
+                        Text("Viewer")
                     }
                 }.tag(0)
-                RankingView()
+                WriterView()
                     .tabItem{
                     Group{
                         Image(systemName: "book")
-                        Text("Ranking")
+                        Text("Writer")
                     }
                 }.tag(1)
             }.padding(.bottom)
