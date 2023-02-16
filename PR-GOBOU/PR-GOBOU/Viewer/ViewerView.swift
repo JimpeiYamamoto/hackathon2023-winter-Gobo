@@ -11,23 +11,24 @@ struct ViewerView: View {
     @State var selection = 0
     let tabList = ["ホーム", "ランキング", "地域"]
     var body: some View {
-        VStack {
-                    Picker("", selection: $selection) {
-                        Text(tabList[0]).tag(0)
-                        Text(tabList[1]).tag(1)
-                        Text(tabList[2]).tag(2)
-                    }.pickerStyle(SegmentedPickerStyle())
-                    
-                    TabView(selection: $selection) {
-                        HomeView()
-                            .tag(0)
-                        RankingView()
-                            .tag(1)
-                        RegionView()
-                            .tag(2)
-                    }
-                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                }
+        VStack(spacing:0) {
+            Picker("", selection: $selection) {
+                Text(tabList[0]).tag(0)
+                Text(tabList[1]).tag(1)
+                Text(tabList[2]).tag(2)
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            
+            TabView(selection: $selection) {
+                HomeView()
+                    .tag(0)
+                RankingView()
+                    .tag(1)
+                RegionView()
+                    .tag(2)
+            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        }
     }
 }
 

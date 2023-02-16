@@ -23,7 +23,6 @@ struct ContentView: View {
     var body: some View {
         ZStack(alignment: .top) {
             NavigationView {
-                //Rectangle().foregroundColor(Color.yellow)
                 VStack{
                     TabView(selection: $tabIndex){
                         ViewerView().tabItem{
@@ -39,7 +38,7 @@ struct ContentView: View {
                                     Text("Writer")
                                 }
                             }.tag(1)
-                    }.padding(.bottom)
+                    }
                 }
                 .navigationBarItems(
                     leading: NavigationLink(
@@ -60,10 +59,7 @@ struct ContentView: View {
             }
             Image("PRTimes_Logo")
         }
-
-
     }
-
 }
 
 struct ContentView_Previews: PreviewProvider {
