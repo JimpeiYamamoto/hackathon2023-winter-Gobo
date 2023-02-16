@@ -50,7 +50,7 @@ class GetArticleAPI: ObservableObject{
                 print("success")
                 
                 print(latestArticleJsonList[0])
-                self!.latestArticleList = latestArticleJsonList.map{
+                self?.latestArticleList = latestArticleJsonList.map{
                     var article = Article()
                     
                     

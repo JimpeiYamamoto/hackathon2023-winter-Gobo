@@ -28,6 +28,7 @@ struct SelectRegionView: View {
                 ForEach(self.regions, id: \.self.id) { region in
                     Button {
                         saveRegionId(id: region.id)
+                        saveRegion(name: region.name)
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         HStack {
@@ -53,6 +54,10 @@ struct SelectRegionView: View {
     
     func saveRegionId(id: Int?) {
         UserDefaults.standard.set(id, forKey: "regionId")
+    }
+    
+    func saveRegion(name: String?) {
+        UserDefaults.standard.set(name, forKey: "region")
     }
 }
 
