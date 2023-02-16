@@ -57,6 +57,7 @@ struct ContentView: View {
                         })
                 )
             }
+            .accentColor(.white)
             Image("PRTimes_Logo")
         }
     }
