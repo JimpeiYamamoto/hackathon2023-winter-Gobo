@@ -9,25 +9,51 @@ import SwiftUI
 
 struct ContentView: View {
     @State var tabIndex:Int = 0
-    var body: some View {
-        VStack{
-            TabView(selection: $tabIndex){
-                ViewerView().tabItem{
-                    Group{
-                        Image(systemName: "house")
-                        Text("Viewer")
-                    }
-                }.tag(0)
-                WriterView()
-                    .tabItem{
-                    Group{
-                        Image(systemName: "book")
-                        Text("Writer")
-                    }
-                }.tag(1)
-            }.padding(.bottom)
-    }.edgesIgnoringSafeArea(.all)
+
+    //    init() {
+    //        UINavigationBar.appearance().backgroundColor = UIColor.blue
+    //        UINavigationBar.appearance().statusBar = UIColor.blue
+    //    }
+
+    init(){
+        //ナビゲーションバーの背景色の設定
+        UINavigationBar.appearance().backgroundColor = UIColor(red: 44/255, green: 68/255, blue: 110/255, alpha: 1)
     }
+
+    var body: some View {
+        ZStack(alignment: .top) {
+            NavigationView {
+                //Rectangle().foregroundColor(Color.yellow)
+                VStack{
+                    TabView(selection: $tabIndex){
+                        ViewerView().tabItem{
+                            Group{
+                                Image(systemName: "house")
+                                Text("Viewer")
+                            }
+                        }.tag(0)
+                        WriterView()
+                            .tabItem{
+                                Group{
+                                    Image(systemName: "book")
+                                    Text("Writer")
+                                }
+                            }.tag(1)
+                    }.padding(.bottom)
+                }
+                
+                .navigationBarItems(
+                        leading: Image(systemName: "person.fill").foregroundColor(.white),
+                        trailing: Image(systemName: "magnifyingglass")
+                            .foregroundColor(.white))
+                    //.toolbarBackground(.blue, for: .navigationBar)
+            }
+            Image("prtimes_logo")
+        }
+
+
+    }
+
 }
 
 struct ContentView_Previews: PreviewProvider {
