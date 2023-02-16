@@ -18,48 +18,54 @@ struct ContentView: View {
     init(){
         //ナビゲーションバーの背景色の設定
         UINavigationBar.appearance().backgroundColor = UIColor(red: 44/255, green: 68/255, blue: 110/255, alpha: 1)
+        UITabBar.appearance().unselectedItemTintColor = .gray
+        
     }
 
     var body: some View {
-        ZStack(alignment: .top) {
-            NavigationView {
-                VStack{
-                    TabView(selection: $tabIndex){
-                        ViewerView().tabItem{
-                            Group{
-                                Image(systemName: "house")
-                                Text("Viewer")
-                            }
-                        }.tag(0)
-                        WriterView()
-                            .tabItem{
+            ZStack(alignment: .top) {
+                NavigationView {
+                    VStack{
+                        TabView(selection: $tabIndex){
+                            ViewerView().tabItem{
                                 Group{
                                     Image(systemName: "book")
-                                    Text("Writer")
+                                    Text("Viewer")
                                 }
-                            }.tag(1)
-                    }
-                }
-                .navigationBarItems(
-                    leading: NavigationLink(
-                        destination: SettingView(),
-                        label: {
-                            Image(systemName: "person.fill")
-                                .foregroundColor(.white)
+                            }.tag(0)
+                            WriterView()
+                                .tabItem{
+                                    Group{
+                                        Image(systemName: "square.and.pencil")
+                                        Text("Writer")
+                                    }
+                                }.tag(1)
                         }
-                    ),
-                    trailing: NavigationLink(
-                        destination: EmptyView(),
-                        label: {
-                            Image(systemName: "magnifyingglass")
-                                .foregroundColor(.white)
-                            
-                        })
-                )
+                    }
+                    .navigationBarItems(
+                        leading: NavigationLink(
+                            destination: SettingView(),
+                            label: {
+                                Image(systemName: "person.fill")
+                                    .foregroundColor(.white)
+                            }
+                        ),
+                        trailing: NavigationLink(
+                            destination: EmptyView(),
+                            label: {
+                                Image(systemName: "magnifyingglass")
+                                    .foregroundColor(.white)
+                                
+                            })
+                    )
+                }
+                .accentColor(Color(UIColor(red: 44/255, green: 68/255, blue: 110/255, alpha: 1)))
+                Image("PRTimes_Logo")
+                    .padding(.top, 8)
             }
-            .accentColor(.white)
-            Image("PRTimes_Logo")
-        }
+            .padding(.top, 0.1)
+            .background(Color(UIColor(red: 44/255, green: 68/255, blue: 110/255, alpha: 1)).ignoresSafeArea(edges: .top))
+
     }
 }
 
