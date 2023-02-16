@@ -10,70 +10,63 @@ import OpenAISwift
 
 struct WriterView: View {
 
-    @State private var keywords:[String] = ["","","","","","","",""]
+    @State private var keywords:[String] = ["","","","","","", ""]
     @State private var generatedSentence:String = ""
 
     var body: some View {
         ScrollView {
-            VStack {
-                HStack {
-                    KeywordTextFieldView(inputText: $keywords[0], placeholder: "キーワード①[必須]")
-                        .padding()
-                        .padding(.leading)
-                    KeywordTextFieldView(inputText: $keywords[1], placeholder: "キーワード②[必須]")
-                        .padding()
-                        .padding(.trailing)
-                }
-                HStack {
-                    KeywordTextFieldView(inputText: $keywords[2], placeholder: "キーワード③[必須]")
-                        .padding()
-                        .padding(.leading)
-                    KeywordTextFieldView(inputText: $keywords[3], placeholder: "キーワード④[必須]")
-                        .padding()
-                        .padding(.trailing)
-                }
-                HStack {
-                    KeywordTextFieldView(inputText: $keywords[4], placeholder: "キーワード⑤")
-                        .padding()
-                        .padding(.leading)
-                    KeywordTextFieldView(inputText: $keywords[5], placeholder: "キーワード⑥")
-                        .padding()
-                        .padding(.trailing)
-                }
-                HStack {
-                    KeywordTextFieldView(inputText: $keywords[6], placeholder: "キーワード⑦")
-                        .padding()
-                        .padding(.leading)
-                    KeywordTextFieldView(inputText: $keywords[7], placeholder: "キーワード⑧")
-                        .padding()
-                        .padding(.trailing)
-                }
-                .padding(.bottom)
+            
+            VStack(alignment: .leading) {
+                Text("Q1. 何をリリースしますか？")
+                    .padding(.horizontal)
+                    .padding(.top)
+                KeywordTextFieldView(inputText: $keywords[0], placeholder: "キーワード[必須]")
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                Text("Q2. リリースの日付はいつですか？")
+                    .padding(.horizontal)
+                KeywordTextFieldView(inputText: $keywords[2], placeholder: "例:○月△日[必須]")
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                Text("Q3. 特徴を教えてください")
+                    .padding(.horizontal)
+                Keyword4Rows(
+                    keyword1: $keywords[3],
+                    keyword2: $keywords[4],
+                    keyword3: $keywords[5],
+                    keyword4: $keywords[6]
+                )
                 
-                Button {
-                    send()
-                } label: {
-                    Text("プレスリリース案の生成".uppercased())
+            }
+            Button {
+                send()
+            } label: {
+                Text("プレスリリース案の生成".uppercased())
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .padding(.horizontal, 20)
+                    .background(
+                        Color.blue
+                            .cornerRadius(10)
+                            .shadow(radius: 10)
+                            .frame(width: UIScreen.main.bounds.width/10 * 9)
+                    )
+                    .frame(width: UIScreen.main.bounds.width/10 * 9)
+            }
+            .padding(.bottom)
+            
+            if generatedSentence.count != 0 {
+                VStack(alignment: .leading) {
+                    Text("提案")
                         .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .padding(.horizontal, 20)
-                        .background(
-                            Color.blue
-                                .cornerRadius(10)
-                                .shadow(radius: 10)
-                                .frame(width: UIScreen.main.bounds.width/10 * 9)
-                        )
-                        .frame(width: UIScreen.main.bounds.width/10 * 9)
-                }
-                .padding(.bottom)
-                
-                if generatedSentence.count != 0 {
+                        .underline()
                     TextEditor(text: $generatedSentence)
-                        .frame(height: 300)
+                        .frame(height: 400)
                         .frame(width: UIScreen.main.bounds.width/10*9)
+                        .border(Color.black, width: 1)
+                        .disabled(true)
                 }
-                
             }
         }
     }
@@ -84,7 +77,9 @@ struct WriterView: View {
         var inputText = "以下の単語を使って注目を集められるプレスリリースを考案してください。"
         for keyword in self.keywords {
             let word = "「" + keyword + "」"
-            inputText += word
+            if keyword != "" {
+                inputText += word
+            }
         }
 
         client.sendCompletion(with: inputText, maxTokens: 100, completionHandler: { result in
@@ -99,6 +94,27 @@ struct WriterView: View {
                 break
             }
         })
+    }
+}
+
+struct Keyword4Rows: View {
+    
+    @Binding var keyword1:String
+    @Binding var keyword2:String
+    @Binding var keyword3:String
+    @Binding var keyword4:String
+    
+    var body: some View {
+        KeywordTextFieldView(inputText: $keyword1, placeholder: "キーワード①[必須]")
+            .padding(.horizontal)
+        KeywordTextFieldView(inputText: $keyword2, placeholder: "キーワード②[必須]")
+            .padding(.horizontal)
+            .padding(.vertical)
+        KeywordTextFieldView(inputText: $keyword3, placeholder: "キーワード③")
+            .padding(.horizontal)
+        KeywordTextFieldView(inputText: $keyword4, placeholder: "キーワード④")
+            .padding(.horizontal)
+                .padding(.vertical)
     }
 }
 
