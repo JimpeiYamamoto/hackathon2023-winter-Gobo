@@ -95,7 +95,7 @@ struct HomeView: View {
                     }
                     .frame(height: UIScreen.main.bounds.height/8)
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-            }
+                }
 
             Section(header: Text("フォロー")
                 .foregroundColor(Color.black)) {
@@ -109,37 +109,40 @@ struct HomeView: View {
                             )
                             .frame(height: UIScreen.main.bounds.height/11)
                         }
+                    } else {
+                        VStack(alignment: .center) {
+                            Text("ああああああああああああああああああああああああああああああああ")
+                                .foregroundColor(.clear)
+
+                            Text("現在、フォローしている企業はありません")
+                                .frame(width:UIScreen.main.bounds.width)
+                                .font(.caption)
+                                .foregroundColor(.gray)
+
+                            Text("右上の設定ボタンから企業をフォローできます")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+
+                            Text("ああああああああああああああああああああああああああああああああ")
+                                .foregroundColor(.clear)
+
+                        }
+                        .frame(height: UIScreen.main.bounds.height/15)
                     }
-                    else {
-                        VStack {
-                            HStack {
-                                Spacer()
-                                Button(action: {
-                                    isShowCompanyFollowView = true
-                                }) {
-                                    Text("企業をフォローする")
-                                }
-                                .sheet(isPresented: $isShowCompanyFollowView) {
-                                    SettingView()
-                                }
-                                Spacer()
-                            }
-                        }.frame(height: UIScreen.main.bounds.height/11)
-                    }
-            }
+                }
 
             Section(header: Text("新着")
                 .foregroundColor(Color.black)) {
-                ForEach(0..<getArticleAPI.latestArticleList.count, id: \.self) { index in
-                    NormalRowView(
-                        title: getArticleAPI.latestArticleList[index].title!,
-                        companyName: getArticleAPI.latestArticleList[index].companyName!,
-                        imgUrl: getArticleAPI.latestArticleList[index].mainImage!,
-                        date: getArticleAPI.latestArticleList[index].createdAt!
-                    )
-                    .frame(height: UIScreen.main.bounds.height/12)
+                    ForEach(0..<getArticleAPI.latestArticleList.count, id: \.self) { index in
+                        NormalRowView(
+                            title: getArticleAPI.latestArticleList[index].title!,
+                            companyName: getArticleAPI.latestArticleList[index].companyName!,
+                            imgUrl: getArticleAPI.latestArticleList[index].mainImage!,
+                            date: getArticleAPI.latestArticleList[index].createdAt!
+                        )
+                        .frame(height: UIScreen.main.bounds.height/12)
+                    }
                 }
-            }
         }
         .listStyle(.inset)
     }

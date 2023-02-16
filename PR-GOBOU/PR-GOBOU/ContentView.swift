@@ -43,20 +43,13 @@ struct ContentView: View {
                         }
                     }
                     .navigationBarItems(
-                        leading: NavigationLink(
+                        trailing: NavigationLink(
                             destination: SettingView(),
                             label: {
-                                Image(systemName: "person.fill")
+                                Image(systemName: "gear")
                                     .foregroundColor(.white)
                             }
-                        ),
-                        trailing: NavigationLink(
-                            destination: EmptyView(),
-                            label: {
-                                Image(systemName: "magnifyingglass")
-                                    .foregroundColor(.white)
-                                
-                            })
+                        )
                     )
                 }
                 .accentColor(Color(UIColor(red: 44/255, green: 68/255, blue: 110/255, alpha: 1)))

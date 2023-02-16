@@ -17,7 +17,7 @@ struct SettingView: View {
     @State private var regions: [Region] = []
     @State private var myRegion: String = "未設定"
     
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     
     init() {
         getCompanyAPI.getCompanyApi()
@@ -55,6 +55,21 @@ struct SettingView: View {
                         }
                         Text(company.company_name ?? "")
                     }
+                }
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    dismiss()
+                }) {
+                    HStack {
+                        Image(systemName: "chevron.backward")
+                            .font(.system(size: 17, weight: .medium))
+                        Text("戻る")
+                    }
+                    .foregroundColor(.white)
                 }
             }
         }
