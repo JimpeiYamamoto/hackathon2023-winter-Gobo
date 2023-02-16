@@ -7,21 +7,10 @@
 
 import Foundation
 
-struct Article: Codable {
-    let companyName: String?
-    let companyId: Int?
-    let releaseId: Int?
-    let title: String?
-    let subtitle: String?
-    let url: String?
-    let leadParagraph: Int?
-    let body: String?
-    let mainImage: String?
-    let mainImageFastly: String?
-    let mainCategoryId: Int?
-    let mainCategoryName: String?
-    let subCategoryId: Int?
-    let subCategoryName: String?
-    let prType: String?
-    let createdAt: String?
+struct Article {
+    var companyName: String?
+    var title: String?
+    var mainImage: String?
+    var createdAt: String?
+    var pageView: Int = 0
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 class GetRegionArticleAPI: ObservableObject{
-    @Published var regionArticleList = [Article]()
+    @Published var regionArticleList = [ArticleJson]()
     
     let host = "https://hackathon.stg-prtimes.net/api/"
     let token = "b655dffbe1b2c82ca882874670cb110995c6604151e1b781cf5c362563eb4e12"
@@ -49,7 +49,7 @@ class GetRegionArticleAPI: ObservableObject{
                 return
             }
                 do {
-                    self!.regionArticleList = try decoder.decode([Article].self, from: data)
+                    self!.regionArticleList = try decoder.decode([ArticleJson].self, from: data)
                     print("success")
                 } catch (let error) {
                     print("fail to decode")

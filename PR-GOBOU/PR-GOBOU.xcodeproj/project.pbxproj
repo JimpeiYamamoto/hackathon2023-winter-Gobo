@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B54E217299DF75900F0305B /* RegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E216299DF75900F0305B /* RegionView.swift */; };
 		4B54E219299DFEEF00F0305B /* GetArticleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E218299DFEEF00F0305B /* GetArticleAPI.swift */; };
-		4B54E21B299E241600F0305B /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E21A299E241600F0305B /* Article.swift */; };
+		4B54E21B299E241600F0305B /* ArticleJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E21A299E241600F0305B /* ArticleJson.swift */; };
 		4B54E222299E305800F0305B /* GetCompanyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E221299E305800F0305B /* GetCompanyAPI.swift */; };
 		4B54E224299E310100F0305B /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E223299E310100F0305B /* Company.swift */; };
 		4B54E226299E31CA00F0305B /* GetCompanyArticleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E225299E31CA00F0305B /* GetCompanyArticleAPI.swift */; };
@@ -17,6 +17,8 @@
 		4B54E22A299E337F00F0305B /* GetRegionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E229299E337F00F0305B /* GetRegionAPI.swift */; };
 		4B54E22C299E342000F0305B /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E22B299E342000F0305B /* Region.swift */; };
 		4B54E231299E3C7E00F0305B /* FollowCompanyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E230299E3C7E00F0305B /* FollowCompanyView.swift */; };
+		4B54E233299E415D00F0305B /* GetPageViewAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E232299E415D00F0305B /* GetPageViewAPI.swift */; };
+		4B54E235299E548600F0305B /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E234299E548600F0305B /* Article.swift */; };
 		4B8D5058299DCA02004BA7F9 /* PR_GOBOUApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D5057299DCA02004BA7F9 /* PR_GOBOUApp.swift */; };
 		4B8D505A299DCA02004BA7F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D5059299DCA02004BA7F9 /* ContentView.swift */; };
 		4B8D505C299DCA03004BA7F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B8D505B299DCA03004BA7F9 /* Assets.xcassets */; };
@@ -53,7 +55,7 @@
 /* Begin PBXFileReference section */
 		4B54E216299DF75900F0305B /* RegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionView.swift; sourceTree = "<group>"; };
 		4B54E218299DFEEF00F0305B /* GetArticleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArticleAPI.swift; sourceTree = "<group>"; };
-		4B54E21A299E241600F0305B /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		4B54E21A299E241600F0305B /* ArticleJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleJson.swift; sourceTree = "<group>"; };
 		4B54E221299E305800F0305B /* GetCompanyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCompanyAPI.swift; sourceTree = "<group>"; };
 		4B54E223299E310100F0305B /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		4B54E225299E31CA00F0305B /* GetCompanyArticleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCompanyArticleAPI.swift; sourceTree = "<group>"; };
@@ -61,6 +63,8 @@
 		4B54E229299E337F00F0305B /* GetRegionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRegionAPI.swift; sourceTree = "<group>"; };
 		4B54E22B299E342000F0305B /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		4B54E230299E3C7E00F0305B /* FollowCompanyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowCompanyView.swift; sourceTree = "<group>"; };
+		4B54E232299E415D00F0305B /* GetPageViewAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPageViewAPI.swift; sourceTree = "<group>"; };
+		4B54E234299E548600F0305B /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		4B8D5054299DCA02004BA7F9 /* PR-GOBOU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PR-GOBOU.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8D5057299DCA02004BA7F9 /* PR_GOBOUApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PR_GOBOUApp.swift; sourceTree = "<group>"; };
 		4B8D5059299DCA02004BA7F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				4B54E218299DFEEF00F0305B /* GetArticleAPI.swift */,
+				4B54E232299E415D00F0305B /* GetPageViewAPI.swift */,
 				4B54E221299E305800F0305B /* GetCompanyAPI.swift */,
 				4B54E225299E31CA00F0305B /* GetCompanyArticleAPI.swift */,
 				4B54E229299E337F00F0305B /* GetRegionAPI.swift */,
@@ -211,7 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				73DD2B92299E03DF00E64644 /* Reputation.swift */,
-				4B54E21A299E241600F0305B /* Article.swift */,
+				4B54E21A299E241600F0305B /* ArticleJson.swift */,
+				4B54E234299E548600F0305B /* Article.swift */,
 				4B54E223299E310100F0305B /* Company.swift */,
 				4B54E22B299E342000F0305B /* Region.swift */,
 			);
@@ -348,17 +354,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B54E21B299E241600F0305B /* Article.swift in Sources */,
+				4B54E21B299E241600F0305B /* ArticleJson.swift in Sources */,
 				4B54E228299E32D200F0305B /* GetRegionArticleAPI.swift in Sources */,
 				4B54E224299E310100F0305B /* Company.swift in Sources */,
 				736AF612299E3EB2001C75BE /* SettingView.swift in Sources */,
 				4B54E226299E31CA00F0305B /* GetCompanyArticleAPI.swift in Sources */,
 				4B8D5083299DCC04004BA7F9 /* ViewerView.swift in Sources */,
+				4B54E233299E415D00F0305B /* GetPageViewAPI.swift in Sources */,
 				4B8D5086299DCCD1004BA7F9 /* WriterView.swift in Sources */,
 				73DD2B93299E03DF00E64644 /* Reputation.swift in Sources */,
 				4B8D5088299DD63B004BA7F9 /* HomeView.swift in Sources */,
 				4B54E217299DF75900F0305B /* RegionView.swift in Sources */,
 				4B54E222299E305800F0305B /* GetCompanyAPI.swift in Sources */,
+				4B54E235299E548600F0305B /* Article.swift in Sources */,
 				4B54E219299DFEEF00F0305B /* GetArticleAPI.swift in Sources */,
 				4B54E22C299E342000F0305B /* Region.swift in Sources */,
 				4B8D505A299DCA02004BA7F9 /* ContentView.swift in Sources */,

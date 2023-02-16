@@ -12,7 +12,8 @@ class GetArticleAPI: ObservableObject{
     
     let host = "https://hackathon.stg-prtimes.net/api/"
     let token = "b655dffbe1b2c82ca882874670cb110995c6604151e1b781cf5c362563eb4e12"
-   
+    let getPageViewAPI = GetPageViewAPI()
+    
     func getLatestArticleApi(){
         var components: URLComponents = URLComponents(string: host + "releases")!
         components.queryItems = [
@@ -26,12 +27,6 @@ class GetArticleAPI: ObservableObject{
         request.setValue("Accept", forHTTPHeaderField: "application/json")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
-        sessionTask(request: request)
-    }
-    
-    
-    
-    private func sessionTask(request: URLRequest ) {
         let decoder = JSONDecoder()
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request, completionHandler: { [weak self] (data, response, error) in
@@ -48,15 +43,49 @@ class GetArticleAPI: ObservableObject{
                 print("data is null")
                 return
             }
-                do {
-                    self!.latestArticleList = try decoder.decode([Article].self, from: data)
-                    print("success")
-                } catch (let error) {
-                    print("fail to decode")
-                    print(error)
+            
+            do {
+                var latestArticleJsonList = [ArticleJson]()
+                latestArticleJsonList = try decoder.decode([ArticleJson].self, from: data)
+                print("success")
+                
+                print(latestArticleJsonList[0])
+                self!.latestArticleList = latestArticleJsonList.map{
+                    var article = Article()
+                    
+                    
+//                    var reputation: Reputation?
+//
+//                    Task.detached {
+//                        do {
+//                            reputation = try await self!.getPageViewAPI.getPageView(companyId: String($0.company_id!), releaseId: String($0.release_id!))
+//                        } catch {
+//                            print()
+//                        }
+//                    }
+                    
+                    article.pageView = 0
+                    article.title = $0.title
+                    article.createdAt = $0.created_at
+                    article.mainImage = $0.main_image
+                    article.companyName = $0.company_name
+                    return article
                 }
+                
+                self!.latestArticleList.sort{
+                    $0.pageView < $1.pageView
+                }
+                
+            } catch (let error) {
+                print("fail to decode")
+                print(error)
+            }
+        
         })
+        
+    
         task.resume()
+        
     }
     
 }
