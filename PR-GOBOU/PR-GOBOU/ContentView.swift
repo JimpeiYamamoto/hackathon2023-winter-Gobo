@@ -23,7 +23,6 @@ struct ContentView: View {
     var body: some View {
         ZStack(alignment: .top) {
             NavigationView {
-                //Rectangle().foregroundColor(Color.yellow)
                 VStack{
                     TabView(selection: $tabIndex){
                         ViewerView().tabItem{
@@ -39,21 +38,17 @@ struct ContentView: View {
                                     Text("Writer")
                                 }
                             }.tag(1)
-                    }.padding(.bottom)
+                    }
                 }
                 
                 .navigationBarItems(
                         leading: Image(systemName: "person.fill").foregroundColor(.white),
                         trailing: Image(systemName: "magnifyingglass")
                             .foregroundColor(.white))
-                    //.toolbarBackground(.blue, for: .navigationBar)
             }
             Image("PRTimes_Logo")
         }
-
-
     }
-
 }
 
 struct ContentView_Previews: PreviewProvider {
