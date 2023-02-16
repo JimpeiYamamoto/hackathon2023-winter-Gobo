@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import OpenAISwift
 
 struct WriterView: View {
 
     @State private var keywords:[String] = ["","","","","","","",""]
-    @State private var generatedSentence:String = "~~~~~~生成された記事~~~~~~~"
+    @State private var generatedSentence:String = ""
 
     var body: some View {
         ScrollView {
@@ -50,7 +51,7 @@ struct WriterView: View {
                 .padding(.bottom)
                 
                 Button {
-                    // ChatGPTのAPIを叩く
+                    send()
                 } label: {
                     Text("プレスリリース案の生成".uppercased())
                         .font(.headline)
@@ -75,6 +76,29 @@ struct WriterView: View {
                 
             }
         }
+    }
+    
+    func send() {
+        let client = OpenAISwift(authToken: "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")
+
+        var inputText = "以下の単語を使って注目を集められるプレスリリースを考案してください。"
+        for keyword in self.keywords {
+            let word = "「" + keyword + "」"
+            inputText += word
+        }
+
+        client.sendCompletion(with: inputText, maxTokens: 100, completionHandler: { result in
+            switch result {
+            case .success(let model):
+                DispatchQueue.main.async {
+                    let output = model.choices.first?.text ?? ""
+                    self.generatedSentence = output
+                }
+            case .failure:
+                print("呼ばれた？")
+                break
+            }
+        })
     }
 }
 
