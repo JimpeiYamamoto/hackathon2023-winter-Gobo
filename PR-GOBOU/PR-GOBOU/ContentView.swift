@@ -48,7 +48,7 @@ struct ContentView: View {
                             .foregroundColor(.white))
                     //.toolbarBackground(.blue, for: .navigationBar)
             }
-            Image("prtimes_logo")
+            Image("PRTimes_Logo")
         }
 
 
