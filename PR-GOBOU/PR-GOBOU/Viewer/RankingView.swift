@@ -14,7 +14,7 @@ struct RankRowView: View {
     let imgUrl: String
     let rank: Int
     let date: String
-   
+
     var body: some View {
         HStack(alignment: .top) {
             Text(String(rank))
@@ -67,25 +67,21 @@ struct RankingView: View {
     let dates:[String] = ["2021-04-01 00:00", "2023-02-16 16:00"]
 
     var body: some View {
-        VStack {
-            Spacer()
-            Text("ランキング")
-            Spacer()
-            List {
-                ForEach(Array(titles.enumerated()), id: \.element) { index, element in
-                    RankRowView(
-                        title: titles[index],
-                        companyName: companyNames[index],
-                        imgUrl: images[index],
-                        rank: ranks[index],
-                        date: dates[index]
-                    )
-                    .frame(height: UIScreen.main.bounds.height/9)
-                }
+
+        List {
+            ForEach(Array(titles.enumerated()), id: \.element) { index, element in
+                RankRowView(
+                    title: titles[index],
+                    companyName: companyNames[index],
+                    imgUrl: images[index],
+                    rank: ranks[index],
+                    date: dates[index]
+                )
+                .frame(height: UIScreen.main.bounds.height/9)
             }
         }
+        .listStyle(.plain)
     }
-        
 }
 
 struct SwiftUIView2_Previews: PreviewProvider {
