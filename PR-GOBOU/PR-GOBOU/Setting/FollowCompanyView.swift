@@ -41,6 +41,9 @@ struct FollowCompanyView: View {
                 }
             }
         }
+        .onAppear(perform: {
+            loadFollowCompanyIds()
+        })
         .listStyle(.plain)
         .navigationTitle(Text("フォローする企業を選択してください"))
         .navigationBarItems(
@@ -63,9 +66,12 @@ struct FollowCompanyView: View {
     }
     
     private func loadFollowCompanyIds() {
-        if UserDefaults.standard.object(forKey: "followCompanyIds") != nil {
-            let saveIds = UserDefaults.standard.array(forKey: "followCompanyIds")
-            for (index, companyId) in companyIds.enumerated() {
+        let saveIds = UserDefaults.standard.array(forKey: "followCompanyIds") as? [Int] ?? []
+        for (index, companyId) in companyIds.enumerated() {
+            if saveIds.contains(companyId) {
+                self.isCheckeds[index] = true
+            } else {
+                self.isCheckeds[index] = false
             }
         }
     }
