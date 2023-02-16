@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00EA01D0299ED02400F0A058 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = 00EA01CF299ED02400F0A058 /* RichText */; };
+		00EA01D2299ED05800F0A058 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EA01D1299ED05800F0A058 /* ArticleView.swift */; };
 		4B54E217299DF75900F0305B /* RegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E216299DF75900F0305B /* RegionView.swift */; };
 		4B54E219299DFEEF00F0305B /* GetArticleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E218299DFEEF00F0305B /* GetArticleAPI.swift */; };
 		4B54E21B299E241600F0305B /* ArticleJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E21A299E241600F0305B /* ArticleJson.swift */; };
@@ -55,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00EA01D1299ED05800F0A058 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		4B54E216299DF75900F0305B /* RegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionView.swift; sourceTree = "<group>"; };
 		4B54E218299DFEEF00F0305B /* GetArticleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArticleAPI.swift; sourceTree = "<group>"; };
 		4B54E21A299E241600F0305B /* ArticleJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleJson.swift; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73FE8A73299EBC8D00265D80 /* OpenAISwift in Frameworks */,
+				00EA01D0299ED02400F0A058 /* RichText in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +208,7 @@
 				4B8D5087299DD63B004BA7F9 /* HomeView.swift */,
 				4B8D5089299DD6B9004BA7F9 /* RankingView.swift */,
 				4B54E216299DF75900F0305B /* RegionView.swift */,
+				00EA01D1299ED05800F0A058 /* ArticleView.swift */,
 			);
 			path = Viewer;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 			name = "PR-GOBOU";
 			packageProductDependencies = (
 				73FE8A72299EBC8D00265D80 /* OpenAISwift */,
+				00EA01CF299ED02400F0A058 /* RichText */,
 			);
 			productName = "PR-GOBOU";
 			productReference = 4B8D5054299DCA02004BA7F9 /* PR-GOBOU.app */;
@@ -322,6 +328,7 @@
 			mainGroup = 4B8D504B299DCA01004BA7F9;
 			packageReferences = (
 				73FE8A71299EBC8D00265D80 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+				00EA01CE299ED02400F0A058 /* XCRemoteSwiftPackageReference "RichText" */,
 			);
 			productRefGroup = 4B8D5055299DCA02004BA7F9 /* Products */;
 			projectDirPath = "";
@@ -369,8 +376,8 @@
 				4B54E228299E32D200F0305B /* GetRegionArticleAPI.swift in Sources */,
 				4B54E224299E310100F0305B /* Company.swift in Sources */,
 				4B54E239299E7E0B00F0305B /* GetRecommendVideoAPI.swift in Sources */,
-				736AF612299E3EB2001C75BE /* SettingView.swift in Sources */,
 				4B54E226299E31CA00F0305B /* GetCompanyArticleAPI.swift in Sources */,
+				00EA01D2299ED05800F0A058 /* ArticleView.swift in Sources */,
 				4B8D5083299DCC04004BA7F9 /* ViewerView.swift in Sources */,
 				4B54E233299E415D00F0305B /* GetPageViewAPI.swift in Sources */,
 				4B8D5086299DCCD1004BA7F9 /* WriterView.swift in Sources */,
@@ -714,6 +721,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		00EA01CE299ED02400F0A058 /* XCRemoteSwiftPackageReference "RichText" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NuPlay/RichText.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		73FE8A71299EBC8D00265D80 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
@@ -725,6 +740,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		00EA01CF299ED02400F0A058 /* RichText */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00EA01CE299ED02400F0A058 /* XCRemoteSwiftPackageReference "RichText" */;
+			productName = RichText;
+		};
 		73FE8A72299EBC8D00265D80 /* OpenAISwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 73FE8A71299EBC8D00265D80 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
