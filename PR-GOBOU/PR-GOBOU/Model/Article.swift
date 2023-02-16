@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ArticleInfo {
+struct ArticleInfo:Codable, Hashable{
     let companyName: String
     let companyId: Int
     let releaseId: Int
