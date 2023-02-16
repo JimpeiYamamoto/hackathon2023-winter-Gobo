@@ -14,7 +14,7 @@ class GetRegionArticleAPI: ObservableObject{
     let token = "b655dffbe1b2c82ca882874670cb110995c6604151e1b781cf5c362563eb4e12"
    
     func getRegionArticleApi(id: String){
-        var components: URLComponents = URLComponents(string: host + "prefectures" + id + "releases")!
+        var components: URLComponents = URLComponents(string: host + "prefectures/" + id + "/releases")!
         components.queryItems = [
             URLQueryItem(name: "per_page", value: "100"),
             URLQueryItem(name: "page", value: "1")
@@ -41,6 +41,7 @@ class GetRegionArticleAPI: ObservableObject{
                 fatalError()
             }
             guard httpStatus.statusCode == 200 else {
+                print(httpStatus.statusCode)
                 fatalError()
             }
             

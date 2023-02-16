@@ -46,29 +46,39 @@ struct RegionRowView: View {
 }
 
 struct RegionView: View {
-    @ObservedObject var getArticleAPI: GetArticleAPI = GetArticleAPI()
+    @ObservedObject var getRegionArticleAPI: GetRegionArticleAPI = GetRegionArticleAPI()
     
     init() {
-        getArticleAPI.getLatestArticleApi()
+        if UserDefaults.standard.object(forKey: "regionId") != nil {
+            let regionId: Int = UserDefaults.standard.object(forKey: "regionId") as! Int
+            getRegionArticleAPI.getRegionArticleApi(id: String(regionId))
+        }
     }
     
     var body: some View {
-        
-        List {
-            Section(header: Text("大阪府のニュース")
-                .foregroundColor(Color.black)) {
-                    ForEach(0..<getArticleAPI.latestArticleList.count, id: \.self) { index in
-                        RegionRowView(
-                            title: getArticleAPI.latestArticleList[index].title!,
-                            companyName: getArticleAPI.latestArticleList[index].companyName!,
-                            imgUrl: getArticleAPI.latestArticleList[index].mainImage!,
-                            date: getArticleAPI.latestArticleList[index].createdAt!
-                        )
-                        .frame(height: UIScreen.main.bounds.height/12)
+        if UserDefaults.standard.object(forKey: "regionId") != nil {
+            List {
+                Section(header: Text(UserDefaults.standard.object(forKey: "region") as! String)
+                    .foregroundColor(Color.black)) {
+                        ForEach(0..<getRegionArticleAPI.regionArticleList.count, id: \.self) { index in
+                            RegionRowView(
+                                title: getRegionArticleAPI.regionArticleList[index].title!,
+                                companyName: getRegionArticleAPI.regionArticleList[index].company_name!,
+                                imgUrl: getRegionArticleAPI.regionArticleList[index].main_image!,
+                                date: getRegionArticleAPI.regionArticleList[index].created_at!
+                            )
+                            .frame(height: UIScreen.main.bounds.height/12)
+                        }
                     }
+            }
+            .listStyle(.plain)
+        } else {
+            VStack {
+                HStack{
+                    Text("地域を選択してください")
                 }
+            }
         }
-        .listStyle(.plain)
     }
 }
 
