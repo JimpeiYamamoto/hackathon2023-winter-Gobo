@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Reputation {
-    let uniqueUser: Int
-    let pageView: Int
-    let like: Int
+struct Reputation: Decodable {
+    let unique_user: Int?
+    let page_view: Int?
+    let like: Int?
 }

@@ -53,29 +53,22 @@ struct RankRowView: View {
 }
 
 struct RankingView: View {
+    @ObservedObject var getArticleAPI: GetArticleAPI = GetArticleAPI()
     
-    let titles:[String] = [
-        "[April Dream] 4月1日を夢の日に。1100社超が「夢」の発信に参加表明",
-        "船の自動運転技術開発スタートアップ 株式会社エイトノット、ICCサミット FUKUOKA 2023「Honda Xcelerator カタパルト」にて優勝。"
-    ]
-    let images: [String] = [
-        "https://prcdn.freetls.fastly.net/release_image/112/1167/112-1167-3219ae855548b936461c3ec288263aed-722x378.png?format=jpeg&auto=webp&quality=85&width=1950&height=1350&fit=bounds",
-        "https://prcdn.freetls.fastly.net/release_image/77033/15/77033-15-405fd3089474e9bd98f08d664cac6bcf-3900x2600.jpg?format=jpeg&auto=webp&quality=85%2C65&width=1950&height=1350&fit=bounds"
-    ]
-    let companyNames:[String] = ["株式会社PR TIMES", "株式会社エイトノット"]
-    let ranks:[Int] = [1, 2]
-    let dates:[String] = ["2021-04-01 00:00", "2023-02-16 16:00"]
+    init() {
+        getArticleAPI.getLatestArticleApi()
+    }
 
     var body: some View {
 
         List {
-            ForEach(Array(titles.enumerated()), id: \.element) { index, element in
+            ForEach(0..<getArticleAPI.latestArticleList.count, id: \.self) { index in
                 RankRowView(
-                    title: titles[index],
-                    companyName: companyNames[index],
-                    imgUrl: images[index],
-                    rank: ranks[index],
-                    date: dates[index]
+                    title: getArticleAPI.latestArticleList[index].title!,
+                    companyName: getArticleAPI.latestArticleList[index].companyName!,
+                    imgUrl: getArticleAPI.latestArticleList[index].mainImage!,
+                    rank: index + 1,
+                    date: getArticleAPI.latestArticleList[index].createdAt!
                 )
                 .frame(height: UIScreen.main.bounds.height/9)
             }
