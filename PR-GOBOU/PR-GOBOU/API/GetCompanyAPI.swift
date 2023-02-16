@@ -49,7 +49,8 @@ class GetCompanyAPI: ObservableObject{
                 return
             }
                 do {
-                    self!.companyList = try decoder.decode([Company].self, from: data)
+                    guard let me = self else { return }
+                    me.companyList = try decoder.decode([Company].self, from: data)
                     print("success")
                 } catch (let error) {
                     print("fail to decode")

@@ -47,7 +47,8 @@ class GetRegionAPI: ObservableObject{
                 return
             }
                 do {
-                    self!.regionList = try decoder.decode([Region].self, from: data)
+                    guard let me = self else { return }
+                    me.regionList = try decoder.decode([Region].self, from: data)
                     print("success")
                 } catch (let error) {
                     print("fail to decode")
