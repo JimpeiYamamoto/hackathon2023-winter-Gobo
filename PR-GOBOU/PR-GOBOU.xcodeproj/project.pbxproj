@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00A56C9C299F226000381030 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A56C9B299F226000381030 /* WebView.swift */; };
 		00EA01D0299ED02400F0A058 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = 00EA01CF299ED02400F0A058 /* RichText */; };
 		00EA01D2299ED05800F0A058 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EA01D1299ED05800F0A058 /* ArticleView.swift */; };
 		4B54E217299DF75900F0305B /* RegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E216299DF75900F0305B /* RegionView.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00A56C9B299F226000381030 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		00EA01D1299ED05800F0A058 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		4B54E216299DF75900F0305B /* RegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionView.swift; sourceTree = "<group>"; };
 		4B54E218299DFEEF00F0305B /* GetArticleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArticleAPI.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				4B8D5089299DD6B9004BA7F9 /* RankingView.swift */,
 				4B54E216299DF75900F0305B /* RegionView.swift */,
 				00EA01D1299ED05800F0A058 /* ArticleView.swift */,
+				00A56C9B299F226000381030 /* WebView.swift */,
 			);
 			path = Viewer;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				4B8D5083299DCC04004BA7F9 /* ViewerView.swift in Sources */,
 				4B54E233299E415D00F0305B /* GetPageViewAPI.swift in Sources */,
 				4B8D5086299DCCD1004BA7F9 /* WriterView.swift in Sources */,
+				00A56C9C299F226000381030 /* WebView.swift in Sources */,
 				73DD2B93299E03DF00E64644 /* Reputation.swift in Sources */,
 				4B8D5088299DD63B004BA7F9 /* HomeView.swift in Sources */,
 				4B54E217299DF75900F0305B /* RegionView.swift in Sources */,
