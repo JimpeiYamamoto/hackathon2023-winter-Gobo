@@ -14,10 +14,10 @@ class GetCompanyAPI: ObservableObject{
     let token = "b655dffbe1b2c82ca882874670cb110995c6604151e1b781cf5c362563eb4e12"
    
     func getCompanyApi(){
-        var components: URLComponents = URLComponents(string: host + "companies")!
+        var components: URLComponents = URLComponents(string: host + "releases")!
         components.queryItems = [
             URLQueryItem(name: "per_page", value: "100"),
-            URLQueryItem(name: "page", value: "1")
+            URLQueryItem(name: "page", value: "80")
         ]
         
         guard let url = components.url else { return }

@@ -17,7 +17,7 @@ class GetArticleAPI: ObservableObject{
         var components: URLComponents = URLComponents(string: host + "releases")!
         components.queryItems = [
             URLQueryItem(name: "per_page", value: "100"),
-            URLQueryItem(name: "page", value: "1")
+            URLQueryItem(name: "page", value: "0")
         ]
         
         guard let url = components.url else { return }
