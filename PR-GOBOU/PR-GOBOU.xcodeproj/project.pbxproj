@@ -39,6 +39,8 @@
 		4B8D508A299DD6B9004BA7F9 /* RankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D5089299DD6B9004BA7F9 /* RankingView.swift */; };
 		4BBD291D299F3074000E369F /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBD291C299F3074000E369F /* OpenAISwift */; };
 		4BBD2920299F30AA000E369F /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBD291F299F30AA000E369F /* RichText */; };
+		4BBD2925299F5B58000E369F /* CreateImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBD2924299F5B58000E369F /* CreateImageAPI.swift */; };
+		4BBD2927299F5CF3000E369F /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBD2926299F5CF3000E369F /* Url.swift */; };
 		736AF614299E435C001C75BE /* SelectRegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736AF613299E435C001C75BE /* SelectRegionView.swift */; };
 		73DD2B93299E03DF00E64644 /* Reputation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD2B92299E03DF00E64644 /* Reputation.swift */; };
 		73FE8A73299EBC8D00265D80 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 73FE8A72299EBC8D00265D80 /* OpenAISwift */; };
@@ -94,6 +96,8 @@
 		4B8D5085299DCCD1004BA7F9 /* WriterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterView.swift; sourceTree = "<group>"; };
 		4B8D5087299DD63B004BA7F9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4B8D5089299DD6B9004BA7F9 /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
+		4BBD2924299F5B58000E369F /* CreateImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateImageAPI.swift; sourceTree = "<group>"; };
+		4BBD2926299F5CF3000E369F /* Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		736AF613299E435C001C75BE /* SelectRegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionView.swift; sourceTree = "<group>"; };
 		73DD2B92299E03DF00E64644 /* Reputation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reputation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,6 +179,7 @@
 			children = (
 				4B8D5057299DCA02004BA7F9 /* PR_GOBOUApp.swift */,
 				4B8D5059299DCA02004BA7F9 /* ContentView.swift */,
+				4BBD2923299F5B31000E369F /* CreateImage */,
 				4B54E21E299E2ADF00F0305B /* API */,
 				73DD2B8F299E034000E64644 /* Model */,
 				4B8D5081299DCBD6004BA7F9 /* Viewer */,
@@ -234,6 +239,14 @@
 			path = Writer;
 			sourceTree = "<group>";
 		};
+		4BBD2923299F5B31000E369F /* CreateImage */ = {
+			isa = PBXGroup;
+			children = (
+				4BBD2924299F5B58000E369F /* CreateImageAPI.swift */,
+			);
+			path = CreateImage;
+			sourceTree = "<group>";
+		};
 		73DD2B8F299E034000E64644 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +256,7 @@
 				4B54E223299E310100F0305B /* Company.swift */,
 				4B54E22B299E342000F0305B /* Region.swift */,
 				4B54E23A299E822500F0305B /* VideoArticle.swift */,
+				4BBD2926299F5CF3000E369F /* Url.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -387,6 +401,7 @@
 			files = (
 				4B54E21B299E241600F0305B /* ArticleJson.swift in Sources */,
 				4B54E228299E32D200F0305B /* GetRegionArticleAPI.swift in Sources */,
+				4BBD2925299F5B58000E369F /* CreateImageAPI.swift in Sources */,
 				4B54E224299E310100F0305B /* Company.swift in Sources */,
 				4B54E239299E7E0B00F0305B /* GetRecommendVideoAPI.swift in Sources */,
 				00A56C9E299F3AD700381030 /* MovieArticleView.swift in Sources */,
@@ -397,6 +412,7 @@
 				4B8D5086299DCCD1004BA7F9 /* WriterView.swift in Sources */,
 				00A56C9C299F226000381030 /* WebView.swift in Sources */,
 				73DD2B93299E03DF00E64644 /* Reputation.swift in Sources */,
+				4BBD2927299F5CF3000E369F /* Url.swift in Sources */,
 				4B8D5088299DD63B004BA7F9 /* HomeView.swift in Sources */,
 				4B54E217299DF75900F0305B /* RegionView.swift in Sources */,
 				4B54E23B299E822500F0305B /* VideoArticle.swift in Sources */,
@@ -573,6 +589,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "PR-GOBOU/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "ネットワークにアクセス";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -603,6 +621,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "PR-GOBOU/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "ネットワークにアクセス";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
