@@ -15,86 +15,99 @@ struct WriterView: View {
     @State private var releaseDate:String = ""
     @State private var keywords:[String] = ["","","",""]
     @State private var generatedSentence:String = ""
-
+    @State private var isFirst:Bool = true
+    @State private var isShowIndicator:Bool = false
+    
     var body: some View {
-        ScrollView {
-            
-            VStack(alignment: .leading) {
-                Text("Q1. 会社名")
-                    .padding(.horizontal)
-                    .padding(.top)
-                KeywordTextFieldView(inputText: $companyName, placeholder: "例:株式会社PRTimes")
-                    .padding(.horizontal)
-                    .padding(.bottom)
-                Text("Q2. 何をリリースしますか?")
-                    .padding(.horizontal)
-                KeywordTextFieldView(inputText: $releaseName, placeholder: "キーワード[必須]")
-                    .padding(.horizontal)
-                    .padding(.bottom)
-                Text("Q2. リリースの日付はいつですか？")
-                    .padding(.horizontal)
-                KeywordTextFieldView(inputText: $releaseDate, placeholder: "例:○月△日[必須]")
-                    .padding(.horizontal)
-                    .padding(.bottom)
-                Text("Q4. 特徴を教えてください")
-                    .padding(.horizontal)
-                Keyword4Rows(
-                    keyword1: $keywords[0],
-                    keyword2: $keywords[1],
-                    keyword3: $keywords[2],
-                    keyword4: $keywords[3]
-                )
-                
-            }
-            Button {
-                send()
-            } label: {
-                Text("プレスリリース案の生成".uppercased())
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .padding(.horizontal, 20)
-                    .background(
-                        Color.blue
-                            .cornerRadius(10)
-                            //.shadow(radius: 10)
-                            .frame(width: UIScreen.main.bounds.width/10 * 9)
+        
+        ZStack {
+            ScrollView {
+                VStack(alignment: .leading) {
+                    Text("Q1. 会社名")
+                        .padding(.horizontal)
+                        .padding(.top)
+                    KeywordTextFieldView(inputText: $companyName, placeholder: "例:株式会社PRTimes")
+                        .padding(.horizontal)
+                        .padding(.bottom)
+                    Text("Q2. 何をリリースしますか?")
+                        .padding(.horizontal)
+                    KeywordTextFieldView(inputText: $releaseName, placeholder: "キーワード[必須]")
+                        .padding(.horizontal)
+                        .padding(.bottom)
+                    Text("Q2. リリースの日付はいつですか？")
+                        .padding(.horizontal)
+                    KeywordTextFieldView(inputText: $releaseDate, placeholder: "例:○月△日[必須]")
+                        .padding(.horizontal)
+                        .padding(.bottom)
+                    Text("Q4. 特徴を教えてください")
+                        .padding(.horizontal)
+                    Keyword4Rows(
+                        keyword1: $keywords[0],
+                        keyword2: $keywords[1],
+                        keyword3: $keywords[2],
+                        keyword4: $keywords[3]
                     )
-                    .frame(width: UIScreen.main.bounds.width/10 * 9)
-            }
-            .padding(.bottom)
-            
-            if generatedSentence.count != 0 {
-                VStack {
-                    HStack {
-                        Text("提案")
-                            .font(.headline)
-                            .underline()
-                            .padding(.leading, 25)
-                        Spacer()
-                        Button(action: {
-                            sharePost(shareText: generatedSentence)
-                        }) {
-                            Image(systemName: "square.and.arrow.up")
-                                .font(.title2)
-                        }
-                            .padding(.trailing, 25)
-                    }
-                    TextEditor(text: $generatedSentence)
-                        .frame(height: 500)
-                        .frame(width: UIScreen.main.bounds.width/10*9)
-                        .border(Color.black, width: 1)
-                        .disabled(true)
                     
                 }
+                Button {
+                    send()
+                } label: {
+                    Text("プレスリリース案の生成".uppercased())
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .padding(.horizontal, 20)
+                        .background(
+                            isButtonDisable() ? Color.gray.cornerRadius(10).frame(width: UIScreen.main.bounds.width/25*24) : Color.blue.cornerRadius(10).frame(width: UIScreen.main.bounds.width/25*24)
+                        )
+                        .frame(width: UIScreen.main.bounds.width/25 * 24)
+                }
+                .disabled(isButtonDisable())
+                .padding(.bottom)
+                
+                if generatedSentence.count != 0 {
+                    VStack {
+                        HStack {
+                            Text("提案")
+                                .font(.headline)
+                                .underline()
+                                .padding(.leading, 25)
+                            Spacer()
+                            Button(action: {
+                                sharePost(shareText: generatedSentence)
+                            }) {
+                                Image(systemName: "square.and.arrow.up")
+                                    .font(.title2)
+                            }
+                                .padding(.trailing, 25)
+                        }
+                        TextEditor(text: $generatedSentence)
+                            .frame(height: 500)
+                            .frame(width: UIScreen.main.bounds.width/10*9)
+                            .border(Color.black, width: 1)
+                            .disabled(true)
+                        
+                    }
+                }
+            }
+            if isButtonDisable() {
+                HUDProgressView(placeHolder: "ローディング中", isShow: $isShowIndicator)
             }
         }
     }
     
+    func isButtonDisable() -> Bool {
+        let ret = (isFirst == false) && (generatedSentence.count == 0)
+        self.isShowIndicator.toggle()
+        return ret
+    }
+    
     func send() {
+        self.isFirst = false
+        self.generatedSentence = ""
         let client = OpenAISwift(authToken: "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")
 
-        var inputText = self.releaseDate + "に発表される" + self.companyName + "の" + self.releaseName + "を" + "以下の単語を使って 注目を集められるプレスリリースを400文字以内で考案してください。"
+        var inputText = self.releaseDate + "に発表される" + self.companyName + "の" + self.releaseName + "を" + "以下の単語を使って 注目を集められるプレスリリースを350文字以内で考案してください。"
         for keyword in self.keywords {
             let word = "「" + keyword + "」"
             if keyword != "" {
@@ -116,7 +129,6 @@ struct WriterView: View {
     }
 
     func sharePost(shareText: String) {
-        //let activityItems = [shareText, shareImage, URL(string: shareUrl)!] as [Any]
         let activityItems = [shareText] as [Any]
         let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         let scenes = UIApplication.shared.connectedScenes
@@ -124,6 +136,54 @@ struct WriterView: View {
         let window = windowScene?.windows.first
         let viewController = window!.rootViewController
         viewController?.present(activityVC, animated: true)
+    }
+}
+
+struct HUDProgressView: View {
+    var placeHolder: String
+    @Binding var isShow: Bool
+    @State var animated = false
+    
+    var body: some View {
+        VStack(spacing: 28) {
+            Circle()
+                .stroke(AngularGradient(gradient: .init(colors: [Color.primary, Color.primary.opacity(0)]), center: .center))
+                .frame(width: 80, height: 80)
+                .rotationEffect(.init(degrees: animated ? 360: 0))
+            
+            Text(placeHolder)
+                .fontWeight(.bold)
+
+        }
+        .padding(.vertical, 25)
+        .padding(.horizontal, 35)
+        .background(BlurView())
+        .cornerRadius(20)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(
+            Color.primary.opacity(0.35)
+                .onTapGesture {
+                    withAnimation {
+                        isShow.toggle()
+                    }
+                }
+        )
+        .onAppear {
+            withAnimation(Animation.linear(duration: 1.5).repeatForever(autoreverses: false)) {
+                animated.toggle()
+            }
+        }
+    }
+}
+
+struct BlurView: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        let view = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+        
     }
 }
 
