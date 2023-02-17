@@ -44,7 +44,8 @@ class GetArticleAPI: ObservableObject{
             }
             
             do {
-                self!.latestArticleList = try decoder.decode([ArticleJson].self, from: data)
+                guard let me = self else { return }
+                me.latestArticleList = try decoder.decode([ArticleJson].self, from: data)
                 print("success")
 
             } catch (let error) {
