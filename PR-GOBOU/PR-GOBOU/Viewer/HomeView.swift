@@ -104,11 +104,11 @@ struct HomeView: View {
                     .frame(height: UIScreen.main.bounds.height/8)
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                 }
-            Section(header: Text("フォロー")
-                .foregroundColor(Color.black), footer: Text("もっと見る...")
-                .font(.caption)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 8))
-                .foregroundColor(Color.gray).frame(width: UIScreen.main.bounds.width, alignment: .trailing)
+
+            Section(
+                header: Text("フォロー")
+                    .foregroundColor(Color.black)
+
             ) {
                 if UserDefaults.standard.object(forKey: "followCompanyIds") != nil && getCompanyArticleAPI.companyArticleList.count != 0{
                     ForEach(0..<min(getCompanyArticleAPI.companyArticleList.count, 4), id: \.self) { index in
@@ -157,6 +157,21 @@ struct HomeView: View {
                     }
                     .frame(height: UIScreen.main.bounds.height/15)
                 }
+            }
+
+            if UserDefaults.standard.object(forKey: "followCompanyIds") != nil && getCompanyArticleAPI.companyArticleList.count != 0{
+                ZStack(alignment: .trailing){
+                    NavigationLink(destination: FollowView(getCompanyArticleAPI: getCompanyArticleAPI)) { EmptyView() }
+                        .opacity(0)
+                    Text("もっと見る...")
+                        .font(.caption)
+                        .foregroundColor(Color.gray)
+                }
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 8))
+                .frame(width: UIScreen.main.bounds.width)
+
+            } else {
+                EmptyView()
             }
             
             Section(header: Text("新着")
