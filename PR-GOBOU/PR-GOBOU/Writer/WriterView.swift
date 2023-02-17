@@ -27,7 +27,7 @@ struct WriterView: View {
                         .padding(.horizontal, 5)
                         .padding(.top)
                         .font(.callout)
-                    KeywordTextFieldView(inputText: $companyName, placeholder: "例:株式会社PRTimes")
+                    KeywordTextFieldView(inputText: $companyName, placeholder: "例:株式会社PR TIMES")
                         .padding(.horizontal)
                         .padding(.bottom)
                     Text("Q2. 何をリリースしますか?")
