@@ -45,7 +45,8 @@ class GetRankingArticleAPI: ObservableObject{
             }
             
             do {
-                self!.ArticleList = try decoder.decode([ArticleJson].self, from: data)
+                guard let me = self else { return }
+                me.ArticleList = try decoder.decode([ArticleJson].self, from: data)
                 print("success")
                 self!.ArticleList.sort{
                     $0.like ?? 0 < $1.like ?? 0
