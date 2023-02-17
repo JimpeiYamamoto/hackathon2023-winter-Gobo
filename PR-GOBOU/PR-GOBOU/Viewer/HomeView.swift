@@ -109,7 +109,7 @@ struct HomeView: View {
             Section(header: Text("フォロー")
                 .foregroundColor(Color.black)) {
                     if UserDefaults.standard.object(forKey: "followCompanyIds") != nil && getCompanyArticleAPI.companyArticleList.count != 0{
-                        ForEach(0..<getCompanyArticleAPI.companyArticleList.count, id: \.self) { index in
+                        ForEach(0..<min(getCompanyArticleAPI.companyArticleList.count, 4), id: \.self) { index in
                             ZStack {
                                 NavigationLink(destination: ArticleView(url: getCompanyArticleAPI.companyArticleList[index].url!)) { EmptyView() }
                                     .opacity(0)
