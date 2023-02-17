@@ -69,6 +69,7 @@ class GetArticleAPI: ObservableObject{
                     article.createdAt = $0.created_at
                     article.mainImage = $0.main_image
                     article.companyName = $0.company_name
+                    article.url = $0.url
                     return article
                 }
                 

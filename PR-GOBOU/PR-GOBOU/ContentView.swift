@@ -43,13 +43,6 @@ struct ContentView: View {
                         }
                     }
                     .navigationBarItems(
-                        leading: NavigationLink(
-                            destination: ArticleView(),
-                            label: {
-                                Image(systemName: "gear")
-                                    .foregroundColor(.white)
-                            }
-                        ),
                         trailing: NavigationLink(
                             destination: SettingView(),
                             label: {
