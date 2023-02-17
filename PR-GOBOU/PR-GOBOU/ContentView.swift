@@ -10,11 +10,6 @@ import SwiftUI
 struct ContentView: View {
     @State var tabIndex:Int = 0
 
-    //    init() {
-    //        UINavigationBar.appearance().backgroundColor = UIColor.blue
-    //        UINavigationBar.appearance().statusBar = UIColor.blue
-    //    }
-
     init(){
         //ナビゲーションバーの背景色の設定
         UINavigationBar.appearance().backgroundColor = UIColor(red: 42/255, green: 76/255, blue: 121/255, alpha: 1)
@@ -49,7 +44,7 @@ struct ContentView: View {
                                 Image(systemName: "gear")
                                     .foregroundColor(.white)
                             }
-                        )
+                        ).foregroundColor(.white)
                     )
                 }
                 .accentColor(Color(UIColor(red: 42/255, green: 76/255, blue: 121/255, alpha: 1)))

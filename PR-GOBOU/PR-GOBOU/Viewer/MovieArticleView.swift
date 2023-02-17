@@ -16,7 +16,8 @@ struct MovieArticleView: View {
                 HStack {
                     Image(systemName: "chevron.left")
                     Text("戻る")
-                }.padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
+                }
+                .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0))
             }
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 20, alignment: .leading)
             .foregroundColor(.white)
