@@ -24,23 +24,27 @@ struct WriterView: View {
             ScrollView {
                 VStack(alignment: .leading) {
                     Text("Q1. 会社名")
-                        .padding(.horizontal)
+                        .padding(.horizontal, 5)
                         .padding(.top)
+                        .font(.callout)
                     KeywordTextFieldView(inputText: $companyName, placeholder: "例:株式会社PRTimes")
                         .padding(.horizontal)
                         .padding(.bottom)
                     Text("Q2. 何をリリースしますか?")
-                        .padding(.horizontal)
+                        .padding(.horizontal, 5)
+                        .font(.callout)
                     KeywordTextFieldView(inputText: $releaseName, placeholder: "キーワード[必須]")
                         .padding(.horizontal)
                         .padding(.bottom)
                     Text("Q2. リリースの日付はいつですか？")
-                        .padding(.horizontal)
+                        .padding(.horizontal, 5)
+                        .font(.callout)
                     KeywordTextFieldView(inputText: $releaseDate, placeholder: "例:○月△日[必須]")
                         .padding(.horizontal)
                         .padding(.bottom)
                     Text("Q4. 特徴を教えてください")
-                        .padding(.horizontal)
+                        .padding(.horizontal, 5)
+                        .font(.callout)
                     Keyword4Rows(
                         keyword1: $keywords[0],
                         keyword2: $keywords[1],
@@ -82,7 +86,7 @@ struct WriterView: View {
                                 .padding(.trailing, 25)
                         }
                         TextEditor(text: $generatedSentence)
-                            .frame(height: 500)
+                            .frame(height: 1000)
                             .frame(width: UIScreen.main.bounds.width/10*9)
                             .border(Color.black, width: 1)
                             .disabled(true)
@@ -91,7 +95,7 @@ struct WriterView: View {
                 }
             }
             if isButtonDisable() {
-                HUDProgressView(placeHolder: "ローディング中", isShow: $isShowIndicator)
+                HUDProgressView(placeHolder: "生成中", isShow: $isShowIndicator)
             }
         }
     }
@@ -107,7 +111,7 @@ struct WriterView: View {
         self.generatedSentence = ""
         let client = OpenAISwift(authToken: "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")
 
-        var inputText = self.releaseDate + "に発表される" + self.companyName + "の" + self.releaseName + "を" + "以下の単語を使って 注目を集められるプレスリリースを350文字以内で考案してください。"
+        var inputText = self.releaseDate + "に発表される" + self.companyName + "という会社が" + self.releaseName + "を発表します。" + "以下の単語を使って 注目を集められるプレスリリースを400文字以内で考案してください。"
         for keyword in self.keywords {
             let word = "「" + keyword + "」"
             if keyword != "" {
@@ -115,7 +119,7 @@ struct WriterView: View {
             }
         }
 
-        client.sendCompletion(with: inputText, maxTokens: 500, completionHandler: { result in
+        client.sendCompletion(with: inputText, maxTokens: 800, completionHandler: { result in
             switch result {
             case .success(let model):
                 DispatchQueue.main.async {
