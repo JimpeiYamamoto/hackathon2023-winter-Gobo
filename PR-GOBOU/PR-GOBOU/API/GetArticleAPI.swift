@@ -72,7 +72,8 @@ class GetArticleAPI: ObservableObject{
                     return article
                 }
                 
-                self!.latestArticleList.sort{
+                guard let me = self else { return }
+                me.latestArticleList.sort{
                     $0.pageView < $1.pageView
                 }
                 
