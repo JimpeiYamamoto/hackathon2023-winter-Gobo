@@ -17,6 +17,7 @@ struct WriterView: View {
     @State private var generatedSentence:String = ""
     @State private var isFirst:Bool = true
     @State private var isShowIndicator:Bool = false
+    @State private var imageUrl:String = ""
     
     var body: some View {
         
@@ -86,11 +87,27 @@ struct WriterView: View {
                                 .padding(.trailing, 25)
                         }
                         TextEditor(text: $generatedSentence)
-                            .frame(height: 1000)
+                            .frame(height: 700)
                             .frame(width: UIScreen.main.bounds.width/10*9)
                             .border(Color.black, width: 1)
                             .disabled(true)
                         
+                        HStack {
+                            Text("サムネイル")
+                                .font(.headline)
+                                .underline()
+                            Spacer()
+                        }
+                        .padding(.leading, 25)
+                        AsyncImage(url: URL(string: imageUrl), content: { returnedImage in
+                            returnedImage
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width:256, height:256)
+                                .cornerRadius(20)
+                        }, placeholder: {
+                            ProgressView()
+                        })
                     }
                 }
             }
@@ -130,6 +147,7 @@ struct WriterView: View {
                 break
             }
         })
+        //ここで画像生成を呼び出してurlをself.imageUrlに代入すればOK
     }
 
     func sharePost(shareText: String) {
