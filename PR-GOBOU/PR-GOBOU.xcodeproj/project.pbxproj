@@ -42,6 +42,8 @@
 		4BBD2912299EDC01000E369F /* VAEDecoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD290B299EDC01000E369F /* VAEDecoder.mlmodelc */; };
 		4BBD2913299EDC01000E369F /* Unet.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD290C299EDC01000E369F /* Unet.mlmodelc */; };
 		4BBD2914299EDC01000E369F /* vocab.json in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD290D299EDC01000E369F /* vocab.json */; };
+		4BBD291D299F3074000E369F /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBD291C299F3074000E369F /* OpenAISwift */; };
+		4BBD2920299F30AA000E369F /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBD291F299F30AA000E369F /* RichText */; };
 		736AF614299E435C001C75BE /* SelectRegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736AF613299E435C001C75BE /* SelectRegionView.swift */; };
 		73DD2B93299E03DF00E64644 /* Reputation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD2B92299E03DF00E64644 /* Reputation.swift */; };
 		73FE8A73299EBC8D00265D80 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 73FE8A72299EBC8D00265D80 /* OpenAISwift */; };
@@ -112,7 +114,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				73FE8A73299EBC8D00265D80 /* OpenAISwift in Frameworks */,
+				4BBD291D299F3074000E369F /* OpenAISwift in Frameworks */,
 				00EA01D0299ED02400F0A058 /* RichText in Frameworks */,
+				4BBD2920299F30AA000E369F /* RichText in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +288,8 @@
 			);
 			name = "PR-GOBOU";
 			packageProductDependencies = (
+				4BBD291C299F3074000E369F /* OpenAISwift */,
+				4BBD291F299F30AA000E369F /* RichText */,
 			);
 			productName = "PR-GOBOU";
 			productReference = 4B8D5054299DCA02004BA7F9 /* PR-GOBOU.app */;
@@ -358,6 +364,8 @@
 			);
 			mainGroup = 4B8D504B299DCA01004BA7F9;
 			packageReferences = (
+				4BBD291B299F3074000E369F /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+				4BBD291E299F30AA000E369F /* XCRemoteSwiftPackageReference "RichText" */,
 			);
 			productRefGroup = 4B8D5055299DCA02004BA7F9 /* Products */;
 			projectDirPath = "";
@@ -770,6 +778,22 @@
 				kind = branch;
 			};
 		};
+		4BBD291B299F3074000E369F /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		4BBD291E299F30AA000E369F /* XCRemoteSwiftPackageReference "RichText" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NuPlay/RichText.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		73FE8A71299EBC8D00265D80 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
@@ -784,6 +808,16 @@
 		00EA01CF299ED02400F0A058 /* RichText */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 00EA01CE299ED02400F0A058 /* XCRemoteSwiftPackageReference "RichText" */;
+			productName = RichText;
+		};
+		4BBD291C299F3074000E369F /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BBD291B299F3074000E369F /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
+		4BBD291F299F30AA000E369F /* RichText */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BBD291E299F30AA000E369F /* XCRemoteSwiftPackageReference "RichText" */;
 			productName = RichText;
 		};
 		73FE8A72299EBC8D00265D80 /* OpenAISwift */ = {

@@ -155,14 +155,15 @@ struct HomeView: View {
 
             Section(header: Text("新着")
                 .foregroundColor(Color.black)) {
-                ForEach(0..<getArticleAPI.latestArticleList.count, id: \.self) { index in
-                    NormalRowView(
-                        title: getArticleAPI.latestArticleList[index].title!,
-                        companyName: getArticleAPI.latestArticleList[index].company_name!,
-                        imgUrl: getArticleAPI.latestArticleList[index].main_image!,
-                        date: getArticleAPI.latestArticleList[index].created_at!
-                    )
-                    .frame(height: UIScreen.main.bounds.height/12)
+                    ForEach(0..<getArticleAPI.latestArticleList.count, id: \.self) { index in
+                        NormalRowView(
+                            title: getArticleAPI.latestArticleList[index].title!,
+                            companyName: getArticleAPI.latestArticleList[index].company_name!,
+                            imgUrl: getArticleAPI.latestArticleList[index].main_image!,
+                            date: getArticleAPI.latestArticleList[index].created_at!
+                        )
+                        .frame(height: UIScreen.main.bounds.height/12)
+                    }
                 }
         }
         .listStyle(.inset)

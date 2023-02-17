@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adamrushy/OpenAISwift",
       "state" : {
-        "branch" : "main",
-        "revision" : "c41b581b53fdf643595a3a9c193bc155847d1840"
+        "revision" : "ed0c6f2dacbac4b3f4028751ed10fcfbf71a8a1d",
+        "version" : "1.1.1"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/NuPlay/RichText.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "6bd367cba5a8245a4229b71317ef232da8e57f4e"
+        "revision" : "6bd367cba5a8245a4229b71317ef232da8e57f4e",
+        "version" : "2.1.3"
       }
     }
   ],
