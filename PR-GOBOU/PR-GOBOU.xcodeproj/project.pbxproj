@@ -35,13 +35,6 @@
 		4B8D5086299DCCD1004BA7F9 /* WriterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D5085299DCCD1004BA7F9 /* WriterView.swift */; };
 		4B8D5088299DD63B004BA7F9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D5087299DD63B004BA7F9 /* HomeView.swift */; };
 		4B8D508A299DD6B9004BA7F9 /* RankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D5089299DD6B9004BA7F9 /* RankingView.swift */; };
-		4BBD290E299EDC01000E369F /* VAEEncoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD2907299EDC01000E369F /* VAEEncoder.mlmodelc */; };
-		4BBD290F299EDC01000E369F /* TextEncoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD2908299EDC01000E369F /* TextEncoder.mlmodelc */; };
-		4BBD2910299EDC01000E369F /* SafetyChecker.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD2909299EDC01000E369F /* SafetyChecker.mlmodelc */; };
-		4BBD2911299EDC01000E369F /* merges.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD290A299EDC01000E369F /* merges.txt */; };
-		4BBD2912299EDC01000E369F /* VAEDecoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD290B299EDC01000E369F /* VAEDecoder.mlmodelc */; };
-		4BBD2913299EDC01000E369F /* Unet.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD290C299EDC01000E369F /* Unet.mlmodelc */; };
-		4BBD2914299EDC01000E369F /* vocab.json in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD290D299EDC01000E369F /* vocab.json */; };
 		4BBD291D299F3074000E369F /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBD291C299F3074000E369F /* OpenAISwift */; };
 		4BBD2920299F30AA000E369F /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = 4BBD291F299F30AA000E369F /* RichText */; };
 		736AF614299E435C001C75BE /* SelectRegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736AF613299E435C001C75BE /* SelectRegionView.swift */; };
@@ -97,13 +90,6 @@
 		4B8D5085299DCCD1004BA7F9 /* WriterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterView.swift; sourceTree = "<group>"; };
 		4B8D5087299DD63B004BA7F9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4B8D5089299DD6B9004BA7F9 /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
-		4BBD2907299EDC01000E369F /* VAEEncoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = VAEEncoder.mlmodelc; sourceTree = "<group>"; };
-		4BBD2908299EDC01000E369F /* TextEncoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TextEncoder.mlmodelc; sourceTree = "<group>"; };
-		4BBD2909299EDC01000E369F /* SafetyChecker.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SafetyChecker.mlmodelc; sourceTree = "<group>"; };
-		4BBD290A299EDC01000E369F /* merges.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = merges.txt; sourceTree = "<group>"; };
-		4BBD290B299EDC01000E369F /* VAEDecoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = VAEDecoder.mlmodelc; sourceTree = "<group>"; };
-		4BBD290C299EDC01000E369F /* Unet.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Unet.mlmodelc; sourceTree = "<group>"; };
-		4BBD290D299EDC01000E369F /* vocab.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vocab.json; sourceTree = "<group>"; };
 		736AF613299E435C001C75BE /* SelectRegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionView.swift; sourceTree = "<group>"; };
 		73DD2B92299E03DF00E64644 /* Reputation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reputation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,7 +169,6 @@
 		4B8D5056299DCA02004BA7F9 /* PR-GOBOU */ = {
 			isa = PBXGroup;
 			children = (
-				4BBD2906299EDC01000E369F /* coreml-stable-diffusion-v1-4_original_compiled */,
 				4B8D5057299DCA02004BA7F9 /* PR_GOBOUApp.swift */,
 				4B8D5059299DCA02004BA7F9 /* ContentView.swift */,
 				4B54E21E299E2ADF00F0305B /* API */,
@@ -241,21 +226,6 @@
 				4B8D5085299DCCD1004BA7F9 /* WriterView.swift */,
 			);
 			path = Writer;
-			sourceTree = "<group>";
-		};
-		4BBD2906299EDC01000E369F /* coreml-stable-diffusion-v1-4_original_compiled */ = {
-			isa = PBXGroup;
-			children = (
-				4BBD2907299EDC01000E369F /* VAEEncoder.mlmodelc */,
-				4BBD2908299EDC01000E369F /* TextEncoder.mlmodelc */,
-				4BBD2909299EDC01000E369F /* SafetyChecker.mlmodelc */,
-				4BBD290A299EDC01000E369F /* merges.txt */,
-				4BBD290B299EDC01000E369F /* VAEDecoder.mlmodelc */,
-				4BBD290C299EDC01000E369F /* Unet.mlmodelc */,
-				4BBD290D299EDC01000E369F /* vocab.json */,
-			);
-			name = "coreml-stable-diffusion-v1-4_original_compiled";
-			path = "../../../開発/models/coreml-stable-diffusion-v1-4_original_compiled";
 			sourceTree = "<group>";
 		};
 		73DD2B8F299E034000E64644 /* Model */ = {
@@ -383,15 +353,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BBD290F299EDC01000E369F /* TextEncoder.mlmodelc in Resources */,
-				4BBD2914299EDC01000E369F /* vocab.json in Resources */,
 				4B8D505F299DCA03004BA7F9 /* Preview Assets.xcassets in Resources */,
 				4B8D505C299DCA03004BA7F9 /* Assets.xcassets in Resources */,
-				4BBD2911299EDC01000E369F /* merges.txt in Resources */,
-				4BBD2913299EDC01000E369F /* Unet.mlmodelc in Resources */,
-				4BBD290E299EDC01000E369F /* VAEEncoder.mlmodelc in Resources */,
-				4BBD2910299EDC01000E369F /* SafetyChecker.mlmodelc in Resources */,
-				4BBD2912299EDC01000E369F /* VAEDecoder.mlmodelc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
