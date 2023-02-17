@@ -17,7 +17,7 @@ struct ContentView: View {
 
     init(){
         //ナビゲーションバーの背景色の設定
-        UINavigationBar.appearance().backgroundColor = UIColor(red: 44/255, green: 68/255, blue: 110/255, alpha: 1)
+        UINavigationBar.appearance().backgroundColor = UIColor(red: 42/255, green: 76/255, blue: 121/255, alpha: 1)
         UITabBar.appearance().unselectedItemTintColor = .gray
         
     }
@@ -59,12 +59,12 @@ struct ContentView: View {
                         )
                     )
                 }
-                .accentColor(Color(UIColor(red: 44/255, green: 68/255, blue: 110/255, alpha: 1)))
+                .accentColor(Color(UIColor(red: 42/255, green: 76/255, blue: 121/255, alpha: 1)))
                 Image("PRTimes_Logo")
                     .padding(.top, 8)
             }
             .padding(.top, 0.1)
-            .background(Color(UIColor(red: 44/255, green: 68/255, blue: 110/255, alpha: 1)).ignoresSafeArea(edges: .top))
+            .background(Color(UIColor(red: 42/255, green: 76/255, blue: 121/255, alpha: 1)).ignoresSafeArea(edges: .top))
 
     }
 }
