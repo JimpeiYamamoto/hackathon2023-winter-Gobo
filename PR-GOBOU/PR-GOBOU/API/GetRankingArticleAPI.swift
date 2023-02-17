@@ -1,22 +1,23 @@
 //
-//  GetRecommendVideoAPI.swift
+//  GetPageViewAPI.swift
 //  PR-GOBOU
 //
-//  Created by 上別縄祐也 on 2023/02/17.
+//  Created by 上別縄祐也 on 2023/02/16.
 //
 
 import Foundation
 
-class GetRecomendVideoAPI: ObservableObject{
-    @Published var recomendVideoList = [VideoArticle]()
+class GetRankingArticleAPI: ObservableObject{
+    @Published var ArticleList = [ArticleJson]()
     
     let host = "https://hackathon.stg-prtimes.net/api/"
     let token = "b655dffbe1b2c82ca882874670cb110995c6604151e1b781cf5c362563eb4e12"
+    
    
-    func getRecommendVideoApi(){
-        var components: URLComponents = URLComponents(string: host + "releases/movie")!
+    func getRankingArticle() {
+        var components: URLComponents = URLComponents(string: host + "releases")!
         components.queryItems = [
-            URLQueryItem(name: "per_page", value: "5"),
+            URLQueryItem(name: "per_page", value: "100"),
             URLQueryItem(name: "page", value: "1")
         ]
         
@@ -26,12 +27,6 @@ class GetRecomendVideoAPI: ObservableObject{
         request.setValue("Accept", forHTTPHeaderField: "application/json")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
-        sessionTask(request: request)
-    }
-    
-    
-    
-    private func sessionTask(request: URLRequest ) {
         let decoder = JSONDecoder()
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request, completionHandler: { [weak self] (data, response, error) in
@@ -41,25 +36,30 @@ class GetRecomendVideoAPI: ObservableObject{
                 fatalError()
             }
             guard httpStatus.statusCode == 200 else {
-                print(httpStatus.statusCode)
-                print("fail")
-                return
+                fatalError()
             }
             
             guard let data = data else {
                 print("data is null")
                 return
             }
-                do {
-                    guard let me = self else { return }
-                    me.recomendVideoList = try decoder.decode([VideoArticle].self, from: data)
-                    print("success")
-                } catch (let error) {
-                    print("fail to decode")
-                    print(error)
+            
+            do {
+                self!.ArticleList = try decoder.decode([ArticleJson].self, from: data)
+                print("success")
+                self!.ArticleList.sort{
+                    $0.like ?? 0 < $1.like ?? 0
                 }
+            } catch (let error) {
+                print("fail to decode")
+                print(error)
+            }
+        
         })
+        
+    
         task.resume()
+        
     }
     
 }

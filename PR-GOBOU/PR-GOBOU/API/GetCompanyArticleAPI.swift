@@ -13,22 +13,20 @@ class GetCompanyArticleAPI: ObservableObject{
     let host = "https://hackathon.stg-prtimes.net/api/"
     let token = "b655dffbe1b2c82ca882874670cb110995c6604151e1b781cf5c362563eb4e12"
    
-    func getCompanyArticleApi(ids: [Int]){
-        for id in ids {
-            var components: URLComponents = URLComponents(string: host + "companies/" + String(id) + "/releases")!
-            components.queryItems = [
-                URLQueryItem(name: "per_page", value: "4"),
-                URLQueryItem(name: "page", value: "1")
-            ]
-            
-            guard let url = components.url else { return }
-            var request = URLRequest(url: url)
-            request.httpMethod = "GET"
-            request.setValue("Accept", forHTTPHeaderField: "application/json")
-            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-            
-            sessionTask(request: request)
-        }
+    func getCompanyArticleApi(id: Int){
+        var components: URLComponents = URLComponents(string: host + "companies/" + String(id) + "/releases")!
+        components.queryItems = [
+            URLQueryItem(name: "per_page", value: "100"),
+            URLQueryItem(name: "page", value: "0")
+        ]
+        
+        guard let url = components.url else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("Accept", forHTTPHeaderField: "application/json")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        sessionTask(request: request)
     }
     
     
@@ -55,7 +53,6 @@ class GetCompanyArticleAPI: ObservableObject{
                     me.companyArticleList.append(contentsOf: try decoder.decode([ArticleJson].self, from: data)) 
                     print("success")
                 } catch (let error) {
-                    print("fail to decode")
                     print(error)
                 }
         })
