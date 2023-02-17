@@ -51,7 +51,8 @@ class GetCompanyArticleAPI: ObservableObject{
                 return
             }
                 do {
-                    self!.companyArticleList.append(contentsOf: try decoder.decode([ArticleJson].self, from: data)) 
+                    guard let me = self else { return }
+                    me.companyArticleList.append(contentsOf: try decoder.decode([ArticleJson].self, from: data)) 
                     print("success")
                 } catch (let error) {
                     print("fail to decode")
