@@ -38,7 +38,7 @@ class GetCompanyAPI: ObservableObject{
             session.finishTasksAndInvalidate()
             
             guard let httpStatus = response as? HTTPURLResponse else {
-                return
+                fatalError()
             }
             guard httpStatus.statusCode == 200 else {
                 fatalError()
@@ -49,7 +49,8 @@ class GetCompanyAPI: ObservableObject{
                 return
             }
                 do {
-                    self!.companyList = try decoder.decode([Company].self, from: data)
+                    guard let me = self else { return }
+                    me.companyList = try decoder.decode([Company].self, from: data)
                     print("success")
                 } catch (let error) {
                     print("fail to decode")
