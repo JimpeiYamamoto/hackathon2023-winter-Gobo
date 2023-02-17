@@ -72,8 +72,7 @@ struct HomeView: View {
         
         if UserDefaults.standard.object(forKey: "followCompanyIds") != nil {
             let followCompanyIds: [Int] = UserDefaults.standard.object(forKey: "followCompanyIds") as! [Int]
-            
-            getCompanyArticleAPI.getCompanyArticleApi(id: followCompanyIds[0])
+            getCompanyArticleAPI.getCompanyArticleApi(ids: followCompanyIds)
         }
     }
 
@@ -100,7 +99,7 @@ struct HomeView: View {
 
             Section(header: Text("フォロー")
                 .foregroundColor(Color.black)) {
-                    if UserDefaults.standard.object(forKey: "followCompanyIds") != nil && getCompanyArticleAPI.companyArticleList.count != 0{
+                    if UserDefaults.standard.object(forKey: "followCompanyIds") != nil {
                         ForEach(0..<getCompanyArticleAPI.companyArticleList.count, id: \.self) { index in
                             NormalRowView(
                                 title: getCompanyArticleAPI.companyArticleList[index].title!,
@@ -110,29 +109,7 @@ struct HomeView: View {
                             )
                             .frame(height: UIScreen.main.bounds.height/11)
                         }
-                    } 
-                    else if getCompanyArticleAPI.companyArticleList.count == 0 {
-                        VStack(alignment: .center) {
-                            Text("ああああああああああああああああああああああああああああああああ")
-                                .foregroundColor(.clear)
-
-                            Text("現在、フォロー中の企業のリリースはありません")
-                                .frame(width:UIScreen.main.bounds.width)
-                                .font(.caption)
-                                .foregroundColor(.gray)
-
-                            Text("右上の設定ボタンから他の企業をフォローできます")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-
-                            Text("ああああああああああああああああああああああああああああああああ")
-                                .foregroundColor(.clear)
-
-                        }
-                        .frame(height: UIScreen.main.bounds.height/15)
-                    
-                    }
-                    else {
+                    } else {
                         VStack(alignment: .center) {
                             Text("ああああああああああああああああああああああああああああああああ")
                                 .foregroundColor(.clear)
@@ -152,18 +129,19 @@ struct HomeView: View {
                         }
                         .frame(height: UIScreen.main.bounds.height/15)
                     }
-            }
+                }
 
             Section(header: Text("新着")
                 .foregroundColor(Color.black)) {
-                ForEach(0..<getArticleAPI.latestArticleList.count, id: \.self) { index in
-                    NormalRowView(
-                        title: getArticleAPI.latestArticleList[index].title!,
-                        companyName: getArticleAPI.latestArticleList[index].company_name!,
-                        imgUrl: getArticleAPI.latestArticleList[index].main_image!,
-                        date: getArticleAPI.latestArticleList[index].created_at!
-                    )
-                    .frame(height: UIScreen.main.bounds.height/12)
+                    ForEach(0..<getArticleAPI.latestArticleList.count, id: \.self) { index in
+                        NormalRowView(
+                            title: getArticleAPI.latestArticleList[index].title!,
+                            companyName: getArticleAPI.latestArticleList[index].companyName!,
+                            imgUrl: getArticleAPI.latestArticleList[index].mainImage!,
+                            date: getArticleAPI.latestArticleList[index].createdAt!
+                        )
+                        .frame(height: UIScreen.main.bounds.height/12)
+                    }
                 }
         }
         .listStyle(.inset)

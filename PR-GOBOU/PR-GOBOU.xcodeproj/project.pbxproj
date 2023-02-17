@@ -20,7 +20,7 @@
 		4B54E22A299E337F00F0305B /* GetRegionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E229299E337F00F0305B /* GetRegionAPI.swift */; };
 		4B54E22C299E342000F0305B /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E22B299E342000F0305B /* Region.swift */; };
 		4B54E231299E3C7E00F0305B /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E230299E3C7E00F0305B /* SettingView.swift */; };
-		4B54E233299E415D00F0305B /* GetRankingArticleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E232299E415D00F0305B /* GetRankingArticleAPI.swift */; };
+		4B54E233299E415D00F0305B /* GetPageViewAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E232299E415D00F0305B /* GetPageViewAPI.swift */; };
 		4B54E235299E548600F0305B /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E234299E548600F0305B /* Article.swift */; };
 		4B54E239299E7E0B00F0305B /* GetRecommendVideoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E238299E7E0B00F0305B /* GetRecommendVideoAPI.swift */; };
 		4B54E23B299E822500F0305B /* VideoArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E23A299E822500F0305B /* VideoArticle.swift */; };
@@ -35,14 +35,6 @@
 		4B8D5086299DCCD1004BA7F9 /* WriterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D5085299DCCD1004BA7F9 /* WriterView.swift */; };
 		4B8D5088299DD63B004BA7F9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D5087299DD63B004BA7F9 /* HomeView.swift */; };
 		4B8D508A299DD6B9004BA7F9 /* RankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D5089299DD6B9004BA7F9 /* RankingView.swift */; };
-		4BBD290E299EDC01000E369F /* VAEEncoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD2907299EDC01000E369F /* VAEEncoder.mlmodelc */; };
-		4BBD290F299EDC01000E369F /* TextEncoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD2908299EDC01000E369F /* TextEncoder.mlmodelc */; };
-		4BBD2910299EDC01000E369F /* SafetyChecker.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD2909299EDC01000E369F /* SafetyChecker.mlmodelc */; };
-		4BBD2911299EDC01000E369F /* merges.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD290A299EDC01000E369F /* merges.txt */; };
-		4BBD2912299EDC01000E369F /* VAEDecoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD290B299EDC01000E369F /* VAEDecoder.mlmodelc */; };
-		4BBD2913299EDC01000E369F /* Unet.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD290C299EDC01000E369F /* Unet.mlmodelc */; };
-		4BBD2914299EDC01000E369F /* vocab.json in Resources */ = {isa = PBXBuildFile; fileRef = 4BBD290D299EDC01000E369F /* vocab.json */; };
-		4BFA141F299EC07500BC8109 /* StableDiffusion in Frameworks */ = {isa = PBXBuildFile; productRef = 4BFA141E299EC07500BC8109 /* StableDiffusion */; };
 		736AF614299E435C001C75BE /* SelectRegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736AF613299E435C001C75BE /* SelectRegionView.swift */; };
 		73DD2B93299E03DF00E64644 /* Reputation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD2B92299E03DF00E64644 /* Reputation.swift */; };
 		73FE8A73299EBC8D00265D80 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 73FE8A72299EBC8D00265D80 /* OpenAISwift */; };
@@ -78,7 +70,7 @@
 		4B54E229299E337F00F0305B /* GetRegionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRegionAPI.swift; sourceTree = "<group>"; };
 		4B54E22B299E342000F0305B /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		4B54E230299E3C7E00F0305B /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		4B54E232299E415D00F0305B /* GetRankingArticleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRankingArticleAPI.swift; sourceTree = "<group>"; };
+		4B54E232299E415D00F0305B /* GetPageViewAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPageViewAPI.swift; sourceTree = "<group>"; };
 		4B54E234299E548600F0305B /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		4B54E238299E7E0B00F0305B /* GetRecommendVideoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecommendVideoAPI.swift; sourceTree = "<group>"; };
 		4B54E23A299E822500F0305B /* VideoArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoArticle.swift; sourceTree = "<group>"; };
@@ -96,13 +88,6 @@
 		4B8D5085299DCCD1004BA7F9 /* WriterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterView.swift; sourceTree = "<group>"; };
 		4B8D5087299DD63B004BA7F9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4B8D5089299DD6B9004BA7F9 /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
-		4BBD2907299EDC01000E369F /* VAEEncoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = VAEEncoder.mlmodelc; sourceTree = "<group>"; };
-		4BBD2908299EDC01000E369F /* TextEncoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TextEncoder.mlmodelc; sourceTree = "<group>"; };
-		4BBD2909299EDC01000E369F /* SafetyChecker.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SafetyChecker.mlmodelc; sourceTree = "<group>"; };
-		4BBD290A299EDC01000E369F /* merges.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = merges.txt; sourceTree = "<group>"; };
-		4BBD290B299EDC01000E369F /* VAEDecoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = VAEDecoder.mlmodelc; sourceTree = "<group>"; };
-		4BBD290C299EDC01000E369F /* Unet.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Unet.mlmodelc; sourceTree = "<group>"; };
-		4BBD290D299EDC01000E369F /* vocab.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vocab.json; sourceTree = "<group>"; };
 		73475E9A299F1B2100C2BBEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		736AF613299E435C001C75BE /* SelectRegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionView.swift; sourceTree = "<group>"; };
 		73DD2B92299E03DF00E64644 /* Reputation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reputation.swift; sourceTree = "<group>"; };
@@ -113,7 +98,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BFA141F299EC07500BC8109 /* StableDiffusion in Frameworks */,
 				73FE8A73299EBC8D00265D80 /* OpenAISwift in Frameworks */,
 				00EA01D0299ED02400F0A058 /* RichText in Frameworks */,
 			);
@@ -140,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				4B54E218299DFEEF00F0305B /* GetArticleAPI.swift */,
-				4B54E232299E415D00F0305B /* GetRankingArticleAPI.swift */,
+				4B54E232299E415D00F0305B /* GetPageViewAPI.swift */,
 				4B54E221299E305800F0305B /* GetCompanyAPI.swift */,
 				4B54E225299E31CA00F0305B /* GetCompanyArticleAPI.swift */,
 				4B54E229299E337F00F0305B /* GetRegionAPI.swift */,
@@ -182,7 +166,6 @@
 		4B8D5056299DCA02004BA7F9 /* PR-GOBOU */ = {
 			isa = PBXGroup;
 			children = (
-				4BBD2906299EDC01000E369F /* coreml-stable-diffusion-v1-4_original_compiled */,
 				73475E9A299F1B2100C2BBEC /* Info.plist */,
 				4B8D5057299DCA02004BA7F9 /* PR_GOBOUApp.swift */,
 				4B8D5059299DCA02004BA7F9 /* ContentView.swift */,
@@ -243,21 +226,6 @@
 			path = Writer;
 			sourceTree = "<group>";
 		};
-		4BBD2906299EDC01000E369F /* coreml-stable-diffusion-v1-4_original_compiled */ = {
-			isa = PBXGroup;
-			children = (
-				4BBD2907299EDC01000E369F /* VAEEncoder.mlmodelc */,
-				4BBD2908299EDC01000E369F /* TextEncoder.mlmodelc */,
-				4BBD2909299EDC01000E369F /* SafetyChecker.mlmodelc */,
-				4BBD290A299EDC01000E369F /* merges.txt */,
-				4BBD290B299EDC01000E369F /* VAEDecoder.mlmodelc */,
-				4BBD290C299EDC01000E369F /* Unet.mlmodelc */,
-				4BBD290D299EDC01000E369F /* vocab.json */,
-			);
-			name = "coreml-stable-diffusion-v1-4_original_compiled";
-			path = "../../../開発/models/coreml-stable-diffusion-v1-4_original_compiled";
-			sourceTree = "<group>";
-		};
 		73DD2B8F299E034000E64644 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,7 +256,6 @@
 			);
 			name = "PR-GOBOU";
 			packageProductDependencies = (
-				4BFA141E299EC07500BC8109 /* StableDiffusion */,
 				73FE8A72299EBC8D00265D80 /* OpenAISwift */,
 				00EA01CF299ED02400F0A058 /* RichText */,
 			);
@@ -365,7 +332,6 @@
 			);
 			mainGroup = 4B8D504B299DCA01004BA7F9;
 			packageReferences = (
-				4BFA141D299EC07500BC8109 /* XCRemoteSwiftPackageReference "ml-stable-diffusion" */,
 				73FE8A71299EBC8D00265D80 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 				00EA01CE299ED02400F0A058 /* XCRemoteSwiftPackageReference "RichText" */,
 			);
@@ -385,15 +351,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BBD290F299EDC01000E369F /* TextEncoder.mlmodelc in Resources */,
-				4BBD2914299EDC01000E369F /* vocab.json in Resources */,
 				4B8D505F299DCA03004BA7F9 /* Preview Assets.xcassets in Resources */,
 				4B8D505C299DCA03004BA7F9 /* Assets.xcassets in Resources */,
-				4BBD2911299EDC01000E369F /* merges.txt in Resources */,
-				4BBD2913299EDC01000E369F /* Unet.mlmodelc in Resources */,
-				4BBD290E299EDC01000E369F /* VAEEncoder.mlmodelc in Resources */,
-				4BBD2910299EDC01000E369F /* SafetyChecker.mlmodelc in Resources */,
-				4BBD2912299EDC01000E369F /* VAEDecoder.mlmodelc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +384,7 @@
 				4B54E226299E31CA00F0305B /* GetCompanyArticleAPI.swift in Sources */,
 				00EA01D2299ED05800F0A058 /* ArticleView.swift in Sources */,
 				4B8D5083299DCC04004BA7F9 /* ViewerView.swift in Sources */,
-				4B54E233299E415D00F0305B /* GetRankingArticleAPI.swift in Sources */,
+				4B54E233299E415D00F0305B /* GetPageViewAPI.swift in Sources */,
 				4B8D5086299DCCD1004BA7F9 /* WriterView.swift in Sources */,
 				00A56C9C299F226000381030 /* WebView.swift in Sources */,
 				73DD2B93299E03DF00E64644 /* Reputation.swift in Sources */,
@@ -609,7 +568,6 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -640,7 +598,6 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -772,9 +729,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4BFA141D299EC07500BC8109 /* XCRemoteSwiftPackageReference "ml-stable-diffusion" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/ml-stable-diffusion";
 		00EA01CE299ED02400F0A058 /* XCRemoteSwiftPackageReference "RichText" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/NuPlay/RichText.git";
@@ -794,10 +748,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4BFA141E299EC07500BC8109 /* StableDiffusion */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4BFA141D299EC07500BC8109 /* XCRemoteSwiftPackageReference "ml-stable-diffusion" */;
-			productName = StableDiffusion;
 		00EA01CF299ED02400F0A058 /* RichText */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 00EA01CE299ED02400F0A058 /* XCRemoteSwiftPackageReference "RichText" */;
