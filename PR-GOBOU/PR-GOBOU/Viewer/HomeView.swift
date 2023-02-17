@@ -175,9 +175,9 @@ struct HomeView: View {
                                 .opacity(0)
                             NormalRowView(
                                 title: getArticleAPI.latestArticleList[index].title!,
-                                companyName: getArticleAPI.latestArticleList[index].companyName!,
-                                imgUrl: getArticleAPI.latestArticleList[index].mainImage!,
-                                date: getArticleAPI.latestArticleList[index].createdAt!
+                                companyName: getArticleAPI.latestArticleList[index].company_name!,
+                                imgUrl: getArticleAPI.latestArticleList[index].main_image!,
+                                date: getArticleAPI.latestArticleList[index].created_at!
                             )
                         }
 
