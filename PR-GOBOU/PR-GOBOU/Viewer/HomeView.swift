@@ -96,7 +96,7 @@ struct HomeView: View {
                     }
                     .frame(height: UIScreen.main.bounds.height/8)
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-            }
+                }
 
             Section(header: Text("フォロー")
                 .foregroundColor(Color.black)) {
@@ -110,38 +110,47 @@ struct HomeView: View {
                             )
                             .frame(height: UIScreen.main.bounds.height/11)
                         }
-                    }
+                    } 
                     else if getCompanyArticleAPI.companyArticleList.count == 0 {
-                        VStack {
-                            HStack {
-                                Spacer()
-                                Button(action: {
-                                    isShowCompanyFollowView = true
-                                }) {
-                                    Text("プレスリリースがありません")
-                                }
-                                .sheet(isPresented: $isShowCompanyFollowView) {
-                                    SettingView()
-                                }
-                                Spacer()
-                            }
-                        }.frame(height: UIScreen.main.bounds.height/11)
+                        VStack(alignment: .center) {
+                            Text("ああああああああああああああああああああああああああああああああ")
+                                .foregroundColor(.clear)
+
+                            Text("現在、フォロー中の企業のリリースはありません")
+                                .frame(width:UIScreen.main.bounds.width)
+                                .font(.caption)
+                                .foregroundColor(.gray)
+
+                            Text("右上の設定ボタンから他の企業をフォローできます")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+
+                            Text("ああああああああああああああああああああああああああああああああ")
+                                .foregroundColor(.clear)
+
+                        }
+                        .frame(height: UIScreen.main.bounds.height/15)
+                    
                     }
                     else {
-                        VStack {
-                            HStack {
-                                Spacer()
-                                Button(action: {
-                                    isShowCompanyFollowView = true
-                                }) {
-                                    Text("企業をフォローする")
-                                }
-                                .sheet(isPresented: $isShowCompanyFollowView) {
-                                    SettingView()
-                                }
-                                Spacer()
-                            }
-                        }.frame(height: UIScreen.main.bounds.height/11)
+                        VStack(alignment: .center) {
+                            Text("ああああああああああああああああああああああああああああああああ")
+                                .foregroundColor(.clear)
+
+                            Text("現在、フォローしている企業はありません")
+                                .frame(width:UIScreen.main.bounds.width)
+                                .font(.caption)
+                                .foregroundColor(.gray)
+
+                            Text("右上の設定ボタンから企業をフォローできます")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+
+                            Text("ああああああああああああああああああああああああああああああああ")
+                                .foregroundColor(.clear)
+
+                        }
+                        .frame(height: UIScreen.main.bounds.height/15)
                     }
             }
 
@@ -156,7 +165,6 @@ struct HomeView: View {
                     )
                     .frame(height: UIScreen.main.bounds.height/12)
                 }
-            }
         }
         .listStyle(.inset)
     }

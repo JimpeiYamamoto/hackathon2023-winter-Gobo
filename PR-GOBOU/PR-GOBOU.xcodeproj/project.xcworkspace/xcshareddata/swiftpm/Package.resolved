@@ -1,6 +1,7 @@
 {
   "pins" : [
     {
+
       "identity" : "ml-stable-diffusion",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/ml-stable-diffusion",
@@ -16,6 +17,23 @@
       "state" : {
         "revision" : "fddd1c00396eed152c45a46bea9f47b98e59301d",
         "version" : "1.2.0"
+
+      "identity" : "openaiswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/adamrushy/OpenAISwift",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c41b581b53fdf643595a3a9c193bc155847d1840"
+      }
+    },
+    {
+      "identity" : "richtext",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NuPlay/RichText.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "6bd367cba5a8245a4229b71317ef232da8e57f4e"
+
       }
     }
   ],

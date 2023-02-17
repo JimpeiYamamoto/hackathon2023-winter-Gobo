@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00A56C9C299F226000381030 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A56C9B299F226000381030 /* WebView.swift */; };
+		00EA01D0299ED02400F0A058 /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = 00EA01CF299ED02400F0A058 /* RichText */; };
+		00EA01D2299ED05800F0A058 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EA01D1299ED05800F0A058 /* ArticleView.swift */; };
 		4B54E217299DF75900F0305B /* RegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E216299DF75900F0305B /* RegionView.swift */; };
 		4B54E219299DFEEF00F0305B /* GetArticleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E218299DFEEF00F0305B /* GetArticleAPI.swift */; };
 		4B54E21B299E241600F0305B /* ArticleJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54E21A299E241600F0305B /* ArticleJson.swift */; };
@@ -42,6 +45,7 @@
 		4BFA141F299EC07500BC8109 /* StableDiffusion in Frameworks */ = {isa = PBXBuildFile; productRef = 4BFA141E299EC07500BC8109 /* StableDiffusion */; };
 		736AF614299E435C001C75BE /* SelectRegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736AF613299E435C001C75BE /* SelectRegionView.swift */; };
 		73DD2B93299E03DF00E64644 /* Reputation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DD2B92299E03DF00E64644 /* Reputation.swift */; };
+		73FE8A73299EBC8D00265D80 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 73FE8A72299EBC8D00265D80 /* OpenAISwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00A56C9B299F226000381030 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		00EA01D1299ED05800F0A058 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		4B54E216299DF75900F0305B /* RegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionView.swift; sourceTree = "<group>"; };
 		4B54E218299DFEEF00F0305B /* GetArticleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArticleAPI.swift; sourceTree = "<group>"; };
 		4B54E21A299E241600F0305B /* ArticleJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleJson.swift; sourceTree = "<group>"; };
@@ -97,6 +103,7 @@
 		4BBD290B299EDC01000E369F /* VAEDecoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = VAEDecoder.mlmodelc; sourceTree = "<group>"; };
 		4BBD290C299EDC01000E369F /* Unet.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Unet.mlmodelc; sourceTree = "<group>"; };
 		4BBD290D299EDC01000E369F /* vocab.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vocab.json; sourceTree = "<group>"; };
+		73475E9A299F1B2100C2BBEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		736AF613299E435C001C75BE /* SelectRegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionView.swift; sourceTree = "<group>"; };
 		73DD2B92299E03DF00E64644 /* Reputation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reputation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +114,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BFA141F299EC07500BC8109 /* StableDiffusion in Frameworks */,
+				73FE8A73299EBC8D00265D80 /* OpenAISwift in Frameworks */,
+				00EA01D0299ED02400F0A058 /* RichText in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				4BBD2906299EDC01000E369F /* coreml-stable-diffusion-v1-4_original_compiled */,
+				73475E9A299F1B2100C2BBEC /* Info.plist */,
 				4B8D5057299DCA02004BA7F9 /* PR_GOBOUApp.swift */,
 				4B8D5059299DCA02004BA7F9 /* ContentView.swift */,
 				4B54E21E299E2ADF00F0305B /* API */,
@@ -219,6 +229,8 @@
 				4B8D5087299DD63B004BA7F9 /* HomeView.swift */,
 				4B8D5089299DD6B9004BA7F9 /* RankingView.swift */,
 				4B54E216299DF75900F0305B /* RegionView.swift */,
+				00EA01D1299ED05800F0A058 /* ArticleView.swift */,
+				00A56C9B299F226000381030 /* WebView.swift */,
 			);
 			path = Viewer;
 			sourceTree = "<group>";
@@ -277,6 +289,8 @@
 			name = "PR-GOBOU";
 			packageProductDependencies = (
 				4BFA141E299EC07500BC8109 /* StableDiffusion */,
+				73FE8A72299EBC8D00265D80 /* OpenAISwift */,
+				00EA01CF299ED02400F0A058 /* RichText */,
 			);
 			productName = "PR-GOBOU";
 			productReference = 4B8D5054299DCA02004BA7F9 /* PR-GOBOU.app */;
@@ -352,6 +366,8 @@
 			mainGroup = 4B8D504B299DCA01004BA7F9;
 			packageReferences = (
 				4BFA141D299EC07500BC8109 /* XCRemoteSwiftPackageReference "ml-stable-diffusion" */,
+				73FE8A71299EBC8D00265D80 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+				00EA01CE299ED02400F0A058 /* XCRemoteSwiftPackageReference "RichText" */,
 			);
 			productRefGroup = 4B8D5055299DCA02004BA7F9 /* Products */;
 			projectDirPath = "";
@@ -407,9 +423,11 @@
 				4B54E224299E310100F0305B /* Company.swift in Sources */,
 				4B54E239299E7E0B00F0305B /* GetRecommendVideoAPI.swift in Sources */,
 				4B54E226299E31CA00F0305B /* GetCompanyArticleAPI.swift in Sources */,
+				00EA01D2299ED05800F0A058 /* ArticleView.swift in Sources */,
 				4B8D5083299DCC04004BA7F9 /* ViewerView.swift in Sources */,
 				4B54E233299E415D00F0305B /* GetRankingArticleAPI.swift in Sources */,
 				4B8D5086299DCCD1004BA7F9 /* WriterView.swift in Sources */,
+				00A56C9C299F226000381030 /* WebView.swift in Sources */,
 				73DD2B93299E03DF00E64644 /* Reputation.swift in Sources */,
 				4B8D5088299DD63B004BA7F9 /* HomeView.swift in Sources */,
 				4B54E217299DF75900F0305B /* RegionView.swift in Sources */,
@@ -585,6 +603,7 @@
 				DEVELOPMENT_TEAM = G9JXCB7X2L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PR-GOBOU/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -615,6 +634,7 @@
 				DEVELOPMENT_TEAM = G9JXCB7X2L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PR-GOBOU/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -755,6 +775,17 @@
 		4BFA141D299EC07500BC8109 /* XCRemoteSwiftPackageReference "ml-stable-diffusion" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/ml-stable-diffusion";
+		00EA01CE299ED02400F0A058 /* XCRemoteSwiftPackageReference "RichText" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NuPlay/RichText.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		73FE8A71299EBC8D00265D80 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -767,6 +798,15 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4BFA141D299EC07500BC8109 /* XCRemoteSwiftPackageReference "ml-stable-diffusion" */;
 			productName = StableDiffusion;
+		00EA01CF299ED02400F0A058 /* RichText */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00EA01CE299ED02400F0A058 /* XCRemoteSwiftPackageReference "RichText" */;
+			productName = RichText;
+		};
+		73FE8A72299EBC8D00265D80 /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73FE8A71299EBC8D00265D80 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -58,7 +58,7 @@ struct RegionView: View {
     var body: some View {
         if UserDefaults.standard.object(forKey: "regionId") != nil {
             List {
-                Section(header: Text(UserDefaults.standard.object(forKey: "region") as! String)
+                Section(header: Text(UserDefaults.standard.object(forKey: "region") as! String + "発のプレスリリース")
                     .foregroundColor(Color.black)) {
                         ForEach(0..<getRegionArticleAPI.regionArticleList.count, id: \.self) { index in
                             RegionRowView(
@@ -73,10 +73,15 @@ struct RegionView: View {
             }
             .listStyle(.plain)
         } else {
-            VStack {
-                HStack{
-                    Text("地域を選択してください")
-                }
+            VStack(alignment: .center) {
+                    Text("現在、地域が設定されていません")
+                        .frame(width:UIScreen.main.bounds.width)
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                    Text("右上の設定ボタンからお住まいの地域を選択できます")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+
             }
         }
     }
