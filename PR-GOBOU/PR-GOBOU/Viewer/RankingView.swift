@@ -53,22 +53,22 @@ struct RankRowView: View {
 }
 
 struct RankingView: View {
-    @ObservedObject var getArticleAPI: GetArticleAPI = GetArticleAPI()
+    @ObservedObject var getRankingArticleAPI: GetRankingArticleAPI = GetRankingArticleAPI()
     
     init() {
-        getArticleAPI.getLatestArticleApi()
+        getRankingArticleAPI.getRankingArticle()
     }
 
     var body: some View {
 
         List {
-            ForEach(0..<getArticleAPI.latestArticleList.count, id: \.self) { index in
+            ForEach(0..<getRankingArticleAPI.ArticleList.count, id: \.self) { index in
                 RankRowView(
-                    title: getArticleAPI.latestArticleList[index].title!,
-                    companyName: getArticleAPI.latestArticleList[index].companyName!,
-                    imgUrl: getArticleAPI.latestArticleList[index].mainImage!,
+                    title: getRankingArticleAPI.ArticleList[index].title!,
+                    companyName: getRankingArticleAPI.ArticleList[index].company_name!,
+                    imgUrl: getRankingArticleAPI.ArticleList[index].main_image!,
                     rank: index + 1,
-                    date: getArticleAPI.latestArticleList[index].createdAt!
+                    date: getRankingArticleAPI.ArticleList[index].created_at!
                 )
                 .frame(height: UIScreen.main.bounds.height/9)
             }

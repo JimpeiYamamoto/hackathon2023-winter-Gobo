@@ -72,7 +72,8 @@ struct HomeView: View {
         
         if UserDefaults.standard.object(forKey: "followCompanyIds") != nil {
             let followCompanyIds: [Int] = UserDefaults.standard.object(forKey: "followCompanyIds") as! [Int]
-            getCompanyArticleAPI.getCompanyArticleApi(ids: followCompanyIds)
+            
+            getCompanyArticleAPI.getCompanyArticleApi(id: followCompanyIds[0])
         }
     }
 
@@ -99,7 +100,7 @@ struct HomeView: View {
 
             Section(header: Text("フォロー")
                 .foregroundColor(Color.black)) {
-                    if UserDefaults.standard.object(forKey: "followCompanyIds") != nil {
+                    if UserDefaults.standard.object(forKey: "followCompanyIds") != nil && getCompanyArticleAPI.companyArticleList.count != 0{
                         ForEach(0..<getCompanyArticleAPI.companyArticleList.count, id: \.self) { index in
                             NormalRowView(
                                 title: getCompanyArticleAPI.companyArticleList[index].title!,
@@ -109,6 +110,22 @@ struct HomeView: View {
                             )
                             .frame(height: UIScreen.main.bounds.height/11)
                         }
+                    }
+                    else if getCompanyArticleAPI.companyArticleList.count == 0 {
+                        VStack {
+                            HStack {
+                                Spacer()
+                                Button(action: {
+                                    isShowCompanyFollowView = true
+                                }) {
+                                    Text("プレスリリースがありません")
+                                }
+                                .sheet(isPresented: $isShowCompanyFollowView) {
+                                    SettingView()
+                                }
+                                Spacer()
+                            }
+                        }.frame(height: UIScreen.main.bounds.height/11)
                     }
                     else {
                         VStack {
@@ -133,9 +150,9 @@ struct HomeView: View {
                 ForEach(0..<getArticleAPI.latestArticleList.count, id: \.self) { index in
                     NormalRowView(
                         title: getArticleAPI.latestArticleList[index].title!,
-                        companyName: getArticleAPI.latestArticleList[index].companyName!,
-                        imgUrl: getArticleAPI.latestArticleList[index].mainImage!,
-                        date: getArticleAPI.latestArticleList[index].createdAt!
+                        companyName: getArticleAPI.latestArticleList[index].company_name!,
+                        imgUrl: getArticleAPI.latestArticleList[index].main_image!,
+                        date: getArticleAPI.latestArticleList[index].created_at!
                     )
                     .frame(height: UIScreen.main.bounds.height/12)
                 }

@@ -1,5 +1,5 @@
 //
-//  GetCompantArticleAPI.swift
+//  GetPageViewAPI.swift
 //  PR-GOBOU
 //
 //  Created by 上別縄祐也 on 2023/02/16.
@@ -7,17 +7,18 @@
 
 import Foundation
 
-class GetCompanyArticleAPI: ObservableObject{
-    @Published var companyArticleList = [ArticleJson]()
+class GetRankingArticleAPI: ObservableObject{
+    @Published var ArticleList = [ArticleJson]()
     
     let host = "https://hackathon.stg-prtimes.net/api/"
     let token = "b655dffbe1b2c82ca882874670cb110995c6604151e1b781cf5c362563eb4e12"
+    
    
-    func getCompanyArticleApi(id: Int){
-        var components: URLComponents = URLComponents(string: host + "companies/" + String(id) + "/releases")!
+    func getRankingArticle() {
+        var components: URLComponents = URLComponents(string: host + "releases")!
         components.queryItems = [
             URLQueryItem(name: "per_page", value: "100"),
-            URLQueryItem(name: "page", value: "0")
+            URLQueryItem(name: "page", value: "1")
         ]
         
         guard let url = components.url else { return }
@@ -26,12 +27,6 @@ class GetCompanyArticleAPI: ObservableObject{
         request.setValue("Accept", forHTTPHeaderField: "application/json")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
-        sessionTask(request: request)
-    }
-    
-    
-    
-    private func sessionTask(request: URLRequest ) {
         let decoder = JSONDecoder()
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request, completionHandler: { [weak self] (data, response, error) in
@@ -48,16 +43,23 @@ class GetCompanyArticleAPI: ObservableObject{
                 print("data is null")
                 return
             }
-                do {
-                    print(data)
-                    let companyArticleList = try decoder.decode([ArticleJson].self, from: data)
-                    self!.companyArticleList.append(contentsOf: companyArticleList)
-                    print()
-                } catch (let error) {
-                    print(error)
+            
+            do {
+                self!.ArticleList = try decoder.decode([ArticleJson].self, from: data)
+                print("success")
+                self!.ArticleList.sort{
+                    $0.like ?? 0 < $1.like ?? 0
                 }
+            } catch (let error) {
+                print("fail to decode")
+                print(error)
+            }
+        
         })
+        
+    
         task.resume()
+        
     }
     
 }
