@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ArticleView: View {
-    var url: String = "https://prtimes.jp/main/html/rd/p/000001201.000000112.html"
+    var url: String
     var body: some View {
         WebView(url: url)
     }

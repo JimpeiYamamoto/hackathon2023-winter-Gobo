@@ -65,6 +65,8 @@ struct HomeView: View {
     @ObservedObject var getCompanyArticleAPI: GetCompanyArticleAPI = GetCompanyArticleAPI()
     
     @State var isShowCompanyFollowView = false
+
+    @State private var show: Bool = false
     
     init() {
         getArticleAPI.getLatestArticleApi()
@@ -84,13 +86,19 @@ struct HomeView: View {
                     ScrollView(.horizontal) {
                         HStack {
                             ForEach(0..<getRecommendVideoAPI.recomendVideoList.count, id: \.self) { index in
-                                ThumbnailView(
-                                    title: getRecommendVideoAPI.recomendVideoList[index].title!,
-                                    companyName: getRecommendVideoAPI.recomendVideoList[index].company_name!,
-                                    imgUrl: getRecommendVideoAPI.recomendVideoList[index].main_image!,
-                                    date: getRecommendVideoAPI.recomendVideoList[index].created_at!
-                                )
+                                Button(action: { self.show.toggle() }) {
+                                    ThumbnailView(
+                                        title: getRecommendVideoAPI.recomendVideoList[index].title!,
+                                        companyName: getRecommendVideoAPI.recomendVideoList[index].company_name!,
+                                        imgUrl: getRecommendVideoAPI.recomendVideoList[index].main_image!,
+                                        date: getRecommendVideoAPI.recomendVideoList[index].created_at!
+                                    )
+                                }
+                                .sheet(isPresented: self.$show) {
+                                    MovieArticleView(url: getRecommendVideoAPI.recomendVideoList[index].url!)
+                                }
                                 .frame(height: UIScreen.main.bounds.height/9)
+                                //NavigationLink(destination: ArticleView()) {}
                             }
                         }
                     }
@@ -102,13 +110,19 @@ struct HomeView: View {
                 .foregroundColor(Color.black)) {
                     if UserDefaults.standard.object(forKey: "followCompanyIds") != nil && getCompanyArticleAPI.companyArticleList.count != 0{
                         ForEach(0..<getCompanyArticleAPI.companyArticleList.count, id: \.self) { index in
-                            NormalRowView(
-                                title: getCompanyArticleAPI.companyArticleList[index].title!,
-                                companyName: getCompanyArticleAPI.companyArticleList[index].company_name!,
-                                imgUrl: getCompanyArticleAPI.companyArticleList[index].main_image!,
-                                date: getCompanyArticleAPI.companyArticleList[index].created_at!
-                            )
+                            ZStack {
+                                NavigationLink(destination: ArticleView(url: getCompanyArticleAPI.companyArticleList[index].url!)) { EmptyView() }
+                                    .opacity(0)
+                                NormalRowView(
+                                    title: getCompanyArticleAPI.companyArticleList[index].title!,
+                                    companyName: getCompanyArticleAPI.companyArticleList[index].company_name!,
+                                    imgUrl: getCompanyArticleAPI.companyArticleList[index].main_image!,
+                                    date: getCompanyArticleAPI.companyArticleList[index].created_at!
+                                )
+                            }
                             .frame(height: UIScreen.main.bounds.height/11)
+
+                            //NavigationLink(destination: ArticleView()) {}
                         }
                     } 
                     else if getCompanyArticleAPI.companyArticleList.count == 0 {
@@ -156,13 +170,21 @@ struct HomeView: View {
             Section(header: Text("新着")
                 .foregroundColor(Color.black)) {
                     ForEach(0..<getArticleAPI.latestArticleList.count, id: \.self) { index in
-                        NormalRowView(
-                            title: getArticleAPI.latestArticleList[index].title!,
-                            companyName: getArticleAPI.latestArticleList[index].company_name!,
-                            imgUrl: getArticleAPI.latestArticleList[index].main_image!,
-                            date: getArticleAPI.latestArticleList[index].created_at!
-                        )
+                        ZStack {
+                            NavigationLink(destination: ArticleView(url: getArticleAPI.latestArticleList[index].url!)) { EmptyView() }
+                                .opacity(0)
+                            NormalRowView(
+                                title: getArticleAPI.latestArticleList[index].title!,
+                                companyName: getArticleAPI.latestArticleList[index].companyName!,
+                                imgUrl: getArticleAPI.latestArticleList[index].mainImage!,
+                                date: getArticleAPI.latestArticleList[index].createdAt!
+                            )
+                        }
+
+
                         .frame(height: UIScreen.main.bounds.height/12)
+
+
                     }
                 }
         }

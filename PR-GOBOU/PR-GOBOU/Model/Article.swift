@@ -13,4 +13,5 @@ struct Article {
     var mainImage: String?
     var createdAt: String?
     var pageView: Int = 0
+    var url: String?
 }
