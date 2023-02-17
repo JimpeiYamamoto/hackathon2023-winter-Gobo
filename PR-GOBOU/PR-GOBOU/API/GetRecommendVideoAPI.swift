@@ -41,9 +41,7 @@ class GetRecomendVideoAPI: ObservableObject{
                 fatalError()
             }
             guard httpStatus.statusCode == 200 else {
-                print(httpStatus.statusCode)
-                print("fail")
-                return
+                fatalError()
             }
             
             guard let data = data else {

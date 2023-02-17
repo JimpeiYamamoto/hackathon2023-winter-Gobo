@@ -25,5 +25,4 @@ struct VideoArticle: Codable {
     let subCategoryName: String?
     let prType: String?
     let created_at: String?
-    let like: Int?
 }
