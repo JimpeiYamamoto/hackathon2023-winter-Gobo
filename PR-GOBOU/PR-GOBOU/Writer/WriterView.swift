@@ -10,31 +10,39 @@ import OpenAISwift
 
 struct WriterView: View {
 
-    @State private var keywords:[String] = ["","","","","","", ""]
+    @State private var companyName:String = ""
+    @State private var releaseName:String = ""
+    @State private var releaseDate:String = ""
+    @State private var keywords:[String] = ["","","",""]
     @State private var generatedSentence:String = ""
 
     var body: some View {
         ScrollView {
             
             VStack(alignment: .leading) {
-                Text("Q1. 何をリリースしますか？")
+                Text("Q1. 会社名")
                     .padding(.horizontal)
                     .padding(.top)
-                KeywordTextFieldView(inputText: $keywords[0], placeholder: "キーワード[必須]")
+                KeywordTextFieldView(inputText: $companyName, placeholder: "例:株式会社PRTimes")
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                Text("Q2. 何をリリースしますか?")
+                    .padding(.horizontal)
+                KeywordTextFieldView(inputText: $releaseName, placeholder: "キーワード[必須]")
                     .padding(.horizontal)
                     .padding(.bottom)
                 Text("Q2. リリースの日付はいつですか？")
                     .padding(.horizontal)
-                KeywordTextFieldView(inputText: $keywords[2], placeholder: "例:○月△日[必須]")
+                KeywordTextFieldView(inputText: $releaseDate, placeholder: "例:○月△日[必須]")
                     .padding(.horizontal)
                     .padding(.bottom)
-                Text("Q3. 特徴を教えてください")
+                Text("Q4. 特徴を教えてください")
                     .padding(.horizontal)
                 Keyword4Rows(
-                    keyword1: $keywords[3],
-                    keyword2: $keywords[4],
-                    keyword3: $keywords[5],
-                    keyword4: $keywords[6]
+                    keyword1: $keywords[0],
+                    keyword2: $keywords[1],
+                    keyword3: $keywords[2],
+                    keyword4: $keywords[3]
                 )
                 
             }
@@ -49,7 +57,7 @@ struct WriterView: View {
                     .background(
                         Color.blue
                             .cornerRadius(10)
-                            .shadow(radius: 10)
+                            //.shadow(radius: 10)
                             .frame(width: UIScreen.main.bounds.width/10 * 9)
                     )
                     .frame(width: UIScreen.main.bounds.width/10 * 9)
@@ -57,15 +65,27 @@ struct WriterView: View {
             .padding(.bottom)
             
             if generatedSentence.count != 0 {
-                VStack(alignment: .leading) {
-                    Text("提案")
-                        .font(.headline)
-                        .underline()
+                VStack {
+                    HStack {
+                        Text("提案")
+                            .font(.headline)
+                            .underline()
+                            .padding(.leading, 25)
+                        Spacer()
+                        Button(action: {
+                            sharePost(shareText: generatedSentence)
+                        }) {
+                            Image(systemName: "square.and.arrow.up")
+                                .font(.title2)
+                        }
+                            .padding(.trailing, 25)
+                    }
                     TextEditor(text: $generatedSentence)
-                        .frame(height: 400)
+                        .frame(height: 500)
                         .frame(width: UIScreen.main.bounds.width/10*9)
                         .border(Color.black, width: 1)
                         .disabled(true)
+                    
                 }
             }
         }
@@ -74,7 +94,7 @@ struct WriterView: View {
     func send() {
         let client = OpenAISwift(authToken: "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")
 
-        var inputText = "以下の単語を使って注目を集められるプレスリリースを考案してください。"
+        var inputText = self.releaseDate + "に発表される" + self.companyName + "の" + self.releaseName + "を" + "以下の単語を使って 注目を集められるプレスリリースを400文字以内で考案してください。"
         for keyword in self.keywords {
             let word = "「" + keyword + "」"
             if keyword != "" {
@@ -82,7 +102,7 @@ struct WriterView: View {
             }
         }
 
-        client.sendCompletion(with: inputText, maxTokens: 100, completionHandler: { result in
+        client.sendCompletion(with: inputText, maxTokens: 500, completionHandler: { result in
             switch result {
             case .success(let model):
                 DispatchQueue.main.async {
@@ -90,10 +110,20 @@ struct WriterView: View {
                     self.generatedSentence = output
                 }
             case .failure:
-                print("呼ばれた？")
                 break
             }
         })
+    }
+
+    func sharePost(shareText: String) {
+        //let activityItems = [shareText, shareImage, URL(string: shareUrl)!] as [Any]
+        let activityItems = [shareText] as [Any]
+        let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+        let viewController = window!.rootViewController
+        viewController?.present(activityVC, animated: true)
     }
 }
 
