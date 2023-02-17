@@ -16,6 +16,7 @@ struct SettingView: View {
     @ObservedObject private var getRegionAPI:GetRegionAPI = GetRegionAPI()
     @State private var regions: [Region] = []
     @State private var myRegion: String = "未設定"
+    @State private var isAscending: Bool = false
     
     @Environment(\.dismiss) var dismiss
     
@@ -33,7 +34,8 @@ struct SettingView: View {
                     Text(myRegion)
                 }
             }
-            Section("フォロー企業") {
+
+            Section {
                 ForEach(companies, id:\.self.company_id) { company in
                     HStack {
                         Button {
@@ -55,6 +57,28 @@ struct SettingView: View {
                         Text(company.company_name ?? "")
                     }
                 }
+            } header:{
+                HStack {
+                    Text("フォロー企業")
+                    Button {
+                        self.companies = companies.sorted(by: { a, b -> Bool in
+                            if isAscending {
+                                return a.company_name! > b.company_name!
+                            } else {
+                                return a.company_name! < b.company_name!
+                            }
+                        })
+                        isAscending.toggle()
+                    } label: {
+                        if isAscending {
+                            Image(systemName: "arrow.up.and.down.righttriangle.up.righttriangle.down")
+                        } else {
+                            Image(systemName: "arrow.up.and.down.righttriangle.up.righttriangle.down.fill")
+                        }
+                    }
+
+                }
+                
             }
         }
         .navigationBarBackButtonHidden(true)
