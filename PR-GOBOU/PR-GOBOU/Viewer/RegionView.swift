@@ -41,7 +41,6 @@ struct RegionRowView: View {
                     .foregroundColor(Color.gray)
             }
         }
-        
     }
 }
 
@@ -61,12 +60,16 @@ struct RegionView: View {
                 Section(header: Text(loadRegionName())
                     .foregroundColor(Color.black)) {
                         ForEach(0..<getRegionArticleAPI.regionArticleList.count, id: \.self) { index in
-                            RegionRowView(
-                                title: getRegionArticleAPI.regionArticleList[index].title!,
-                                companyName: getRegionArticleAPI.regionArticleList[index].company_name!,
-                                imgUrl: getRegionArticleAPI.regionArticleList[index].main_image!,
-                                date: getRegionArticleAPI.regionArticleList[index].created_at!
-                            )
+                            ZStack{
+                                NavigationLink(destination: ArticleView(url: getRegionArticleAPI.regionArticleList[index].url!)) { EmptyView() }
+                                    .opacity(0)
+                                RegionRowView(
+                                    title: getRegionArticleAPI.regionArticleList[index].title!,
+                                    companyName: getRegionArticleAPI.regionArticleList[index].company_name!,
+                                    imgUrl: getRegionArticleAPI.regionArticleList[index].main_image!,
+                                    date: getRegionArticleAPI.regionArticleList[index].created_at!
+                                )
+                            }
                             .frame(height: UIScreen.main.bounds.height/12)
                         }
                     }
@@ -74,22 +77,20 @@ struct RegionView: View {
             .listStyle(.plain)
         } else {
             VStack(alignment: .center) {
-                    Text("現在、地域が設定されていません")
-                        .frame(width:UIScreen.main.bounds.width)
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                    Text("右上の設定ボタンからお住まいの地域を選択できます")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-
+                Text("現在、地域が設定されていません")
+                    .frame(width:UIScreen.main.bounds.width)
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                Text("右上の設定ボタンからお住まいの地域を選択できます")
+                    .font(.caption)
+                    .foregroundColor(.gray)
             }
         }
     }
     
     func loadRegionName() -> String{
-       guard let name = UserDefaults.standard.string(forKey: "region") else { return "居住地が未設定です"}
+        guard let name = UserDefaults.standard.string(forKey: "region") else { return "居住地が未設定です"}
         return name + "発のプレスリリース"
-        
     }
 }
 

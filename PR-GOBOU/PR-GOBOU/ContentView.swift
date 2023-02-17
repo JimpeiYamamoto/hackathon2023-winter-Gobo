@@ -11,10 +11,8 @@ struct ContentView: View {
     @State var tabIndex:Int = 0
 
     init(){
-        //ナビゲーションバーの背景色の設定
         UINavigationBar.appearance().backgroundColor = UIColor(red: 42/255, green: 76/255, blue: 121/255, alpha: 1)
         UITabBar.appearance().unselectedItemTintColor = .gray
-        
     }
 
     var body: some View {
@@ -53,7 +51,6 @@ struct ContentView: View {
             }
             .padding(.top, 0.1)
             .background(Color(UIColor(red: 42/255, green: 76/255, blue: 121/255, alpha: 1)).ignoresSafeArea(edges: .top))
-
     }
 }
 

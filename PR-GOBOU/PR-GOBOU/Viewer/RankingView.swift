@@ -72,13 +72,16 @@ struct RankingView: View {
 
         List {
             ForEach(0..<getRankingArticleAPI.ArticleList.count, id: \.self) { index in
-                RankRowView(
-                    title: getRankingArticleAPI.ArticleList[index].title!,
-                    companyName: getRankingArticleAPI.ArticleList[index].company_name!,
-                    imgUrl: getRankingArticleAPI.ArticleList[index].main_image!,
-                    rank: index + 1,
-                    date: getRankingArticleAPI.ArticleList[index].created_at!
-                )
+                ZStack{
+                    NavigationLink(destination: ArticleView(url: getRankingArticleAPI.ArticleList[index].url!)) { EmptyView() }
+                        .opacity(0)
+                    RankRowView(
+                        title: getRankingArticleAPI.ArticleList[index].title!,
+                        companyName: getRankingArticleAPI.ArticleList[index].company_name!,
+                        imgUrl: getRankingArticleAPI.ArticleList[index].main_image!,
+                        rank: index + 1,
+                        date: getRankingArticleAPI.ArticleList[index].created_at!
+                    )}
                 .frame(height: UIScreen.main.bounds.height/9)
             }
         }

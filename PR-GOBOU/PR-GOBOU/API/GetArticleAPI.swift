@@ -46,33 +46,6 @@ class GetArticleAPI: ObservableObject{
             do {
                 self!.latestArticleList = try decoder.decode([ArticleJson].self, from: data)
                 print("success")
-                
-//                self?.latestArticleList = latestArticleJsonList.map{
-//                    var article = Article()
-//
-//
-//                    //                    var reputation: Reputation?
-//                    //
-//                    //                    Task.detached {
-//                    //                        do {
-//                    //                            reputation = try await self!.getPageViewAPI.getPageView(companyId: String($0.company_id!), releaseId: String($0.release_id!))
-//                    //                        } catch {
-//                    //                            print()
-//                    //                        }
-//                    //                    }
-//
-//                    article.pageView = 0
-//                    article.title = $0.title
-//                    article.createdAt = $0.created_at
-//                    article.mainImage = $0.main_image
-//                    article.companyName = $0.company_name
-//                    article.url = $0.url
-//                    return article
-//                }
-                
-//                self!.latestArticleList.sort{
-//                    $0.pageView < $1.pageView
-//                }
 
             } catch (let error) {
                 print("fail to decode")

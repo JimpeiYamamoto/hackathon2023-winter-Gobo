@@ -65,7 +65,6 @@ struct HomeView: View {
     @ObservedObject var getCompanyArticleAPI: GetCompanyArticleAPI = GetCompanyArticleAPI()
     
     @State var isShowCompanyFollowView = false
-
     @State private var show: Bool = false
     
     init() {
@@ -105,7 +104,6 @@ struct HomeView: View {
                     .frame(height: UIScreen.main.bounds.height/8)
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                 }
-
             Section(header: Text("フォロー")
                 .foregroundColor(Color.black)) {
                     if UserDefaults.standard.object(forKey: "followCompanyIds") != nil && getCompanyArticleAPI.companyArticleList.count != 0{
@@ -121,27 +119,21 @@ struct HomeView: View {
                                 )
                             }
                             .frame(height: UIScreen.main.bounds.height/11)
-
-                            //NavigationLink(destination: ArticleView()) {}
                         }
-                    } 
+                    }
                     else if getCompanyArticleAPI.companyArticleList.count == 0 {
                         VStack(alignment: .center) {
                             Text("ああああああああああああああああああああああああああああああああ")
                                 .foregroundColor(.clear)
-
                             Text("現在、フォロー中の企業のリリースはありません")
                                 .frame(width:UIScreen.main.bounds.width)
                                 .font(.caption)
                                 .foregroundColor(.gray)
-
                             Text("右上の設定ボタンから他の企業をフォローできます")
                                 .font(.caption)
                                 .foregroundColor(.gray)
-
                             Text("ああああああああああああああああああああああああああああああああ")
                                 .foregroundColor(.clear)
-
                         }
                         .frame(height: UIScreen.main.bounds.height/15)
                     }
@@ -149,24 +141,20 @@ struct HomeView: View {
                         VStack(alignment: .center) {
                             Text("ああああああああああああああああああああああああああああああああ")
                                 .foregroundColor(.clear)
-
                             Text("現在、フォローしている企業はありません")
                                 .frame(width:UIScreen.main.bounds.width)
                                 .font(.caption)
                                 .foregroundColor(.gray)
-
                             Text("右上の設定ボタンから企業をフォローできます")
                                 .font(.caption)
                                 .foregroundColor(.gray)
-
                             Text("ああああああああああああああああああああああああああああああああ")
                                 .foregroundColor(.clear)
-
                         }
                         .frame(height: UIScreen.main.bounds.height/15)
                     }
-            }
-
+                }
+            
             Section(header: Text("新着")
                 .foregroundColor(Color.black)) {
                     ForEach(0..<getArticleAPI.latestArticleList.count, id: \.self) { index in
@@ -180,11 +168,7 @@ struct HomeView: View {
                                 date: getArticleAPI.latestArticleList[index].created_at!
                             )
                         }
-
-
                         .frame(height: UIScreen.main.bounds.height/12)
-
-
                     }
                 }
         }

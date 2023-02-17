@@ -32,7 +32,6 @@ struct SettingView: View {
                 } label: {
                     Text(myRegion)
                 }
-
             }
             Section("フォロー企業") {
                 ForEach(companies, id:\.self.company_id) { company in
