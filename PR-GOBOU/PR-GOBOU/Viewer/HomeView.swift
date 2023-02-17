@@ -104,56 +104,75 @@ struct HomeView: View {
                     .frame(height: UIScreen.main.bounds.height/8)
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                 }
-            Section(header: Text("フォロー")
-                .foregroundColor(Color.black)) {
-                    if UserDefaults.standard.object(forKey: "followCompanyIds") != nil && getCompanyArticleAPI.companyArticleList.count != 0{
-                        ForEach(0..<min(getCompanyArticleAPI.companyArticleList.count, 4), id: \.self) { index in
-                            ZStack {
-                                NavigationLink(destination: ArticleView(url: getCompanyArticleAPI.companyArticleList[index].url!)) { EmptyView() }
-                                    .opacity(0)
-                                NormalRowView(
-                                    title: getCompanyArticleAPI.companyArticleList[index].title!,
-                                    companyName: getCompanyArticleAPI.companyArticleList[index].company_name!,
-                                    imgUrl: getCompanyArticleAPI.companyArticleList[index].main_image!,
-                                    date: getCompanyArticleAPI.companyArticleList[index].created_at!
-                                )
-                            }
-                            .frame(height: UIScreen.main.bounds.height/11)
+
+            Section(
+                header: Text("フォロー")
+                    .foregroundColor(Color.black)
+
+            ) {
+                if UserDefaults.standard.object(forKey: "followCompanyIds") != nil && getCompanyArticleAPI.companyArticleList.count != 0{
+                    ForEach(0..<min(getCompanyArticleAPI.companyArticleList.count, 4), id: \.self) { index in
+                        ZStack {
+                            NavigationLink(destination: ArticleView(url: getCompanyArticleAPI.companyArticleList[index].url!)) { EmptyView() }
+                                .opacity(0)
+                            NormalRowView(
+                                title: getCompanyArticleAPI.companyArticleList[index].title!,
+                                companyName: getCompanyArticleAPI.companyArticleList[index].company_name!,
+                                imgUrl: getCompanyArticleAPI.companyArticleList[index].main_image!,
+                                date: getCompanyArticleAPI.companyArticleList[index].created_at!
+                            )
                         }
-                    }
-                    else if getCompanyArticleAPI.companyArticleList.count == 0 {
-                        VStack(alignment: .center) {
-                            Text("ああああああああああああああああああああああああああああああああ")
-                                .foregroundColor(.clear)
-                            Text("現在、フォロー中の企業のリリースはありません")
-                                .frame(width:UIScreen.main.bounds.width)
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                            Text("右上の設定ボタンから他の企業をフォローできます")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                            Text("ああああああああああああああああああああああああああああああああ")
-                                .foregroundColor(.clear)
-                        }
-                        .frame(height: UIScreen.main.bounds.height/15)
-                    }
-                    else {
-                        VStack(alignment: .center) {
-                            Text("ああああああああああああああああああああああああああああああああ")
-                                .foregroundColor(.clear)
-                            Text("現在、フォローしている企業はありません")
-                                .frame(width:UIScreen.main.bounds.width)
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                            Text("右上の設定ボタンから企業をフォローできます")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                            Text("ああああああああああああああああああああああああああああああああ")
-                                .foregroundColor(.clear)
-                        }
-                        .frame(height: UIScreen.main.bounds.height/15)
+                        .frame(height: UIScreen.main.bounds.height/11)
                     }
                 }
+                else if getCompanyArticleAPI.companyArticleList.count == 0 {
+                    VStack(alignment: .center) {
+                        Text("ああああああああああああああああああああああああああああああああ")
+                            .foregroundColor(.clear)
+                        Text("現在、フォロー中の企業のリリースはありません")
+                            .frame(width:UIScreen.main.bounds.width)
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                        Text("右上の設定ボタンから他の企業をフォローできます")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                        Text("ああああああああああああああああああああああああああああああああ")
+                            .foregroundColor(.clear)
+                    }
+                    .frame(height: UIScreen.main.bounds.height/15)
+                }
+                else {
+                    VStack(alignment: .center) {
+                        Text("ああああああああああああああああああああああああああああああああ")
+                            .foregroundColor(.clear)
+                        Text("現在、フォローしている企業はありません")
+                            .frame(width:UIScreen.main.bounds.width)
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                        Text("右上の設定ボタンから企業をフォローできます")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                        Text("ああああああああああああああああああああああああああああああああ")
+                            .foregroundColor(.clear)
+                    }
+                    .frame(height: UIScreen.main.bounds.height/15)
+                }
+            }
+
+            if UserDefaults.standard.object(forKey: "followCompanyIds") != nil && getCompanyArticleAPI.companyArticleList.count != 0{
+                ZStack(alignment: .trailing){
+                    NavigationLink(destination: FollowView(getCompanyArticleAPI: getCompanyArticleAPI)) { EmptyView() }
+                        .opacity(0)
+                    Text("もっと見る...")
+                        .font(.caption)
+                        .foregroundColor(Color.gray)
+                }
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 8))
+                .frame(width: UIScreen.main.bounds.width)
+
+            } else {
+                EmptyView()
+            }
             
             Section(header: Text("新着")
                 .foregroundColor(Color.black)) {

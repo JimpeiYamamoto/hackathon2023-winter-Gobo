@@ -46,7 +46,7 @@ struct ContentView: View {
                     )
                 }
                 .accentColor(Color(UIColor(red: 42/255, green: 76/255, blue: 121/255, alpha: 1)))
-                Image("PRTimes_Logo")
+                Image("prtimes")
                     .padding(.top, 8)
             }
             .padding(.top, 0.1)
