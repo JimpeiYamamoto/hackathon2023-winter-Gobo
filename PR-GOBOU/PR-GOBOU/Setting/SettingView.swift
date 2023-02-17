@@ -60,6 +60,7 @@ struct SettingView: View {
             } header:{
                 HStack {
                     Text("フォロー企業")
+                    Spacer()
                     Button {
                         self.companies = companies.sorted(by: { a, b -> Bool in
                             if isAscending {
