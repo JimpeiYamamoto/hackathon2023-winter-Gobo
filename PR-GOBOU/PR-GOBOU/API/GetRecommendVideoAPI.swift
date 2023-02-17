@@ -51,7 +51,8 @@ class GetRecomendVideoAPI: ObservableObject{
                 return
             }
                 do {
-                    self!.recomendVideoList = try decoder.decode([VideoArticle].self, from: data)
+                    guard let me = self else { return }
+                    me.recomendVideoList = try decoder.decode([VideoArticle].self, from: data)
                     print("success")
                 } catch (let error) {
                     print("fail to decode")

@@ -14,11 +14,20 @@ struct RankRowView: View {
     let imgUrl: String
     let rank: Int
     let date: String
+    let colors: [Color] = [
+        Color(UIColor(red: 232/255, green: 90/255, blue: 85/255, alpha: 1)),
+        Color(UIColor(red: 236/255, green: 153/255, blue: 66/255, alpha: 1)),
+        Color(UIColor(red: 94/255, green: 200/255, blue: 146/255, alpha: 1)),
+        Color(UIColor(red: 85/255, green: 155/255, blue: 223/255, alpha: 1)),
+        Color(UIColor(red: 159/255, green: 83/255, blue: 210/255, alpha: 1)),
+    ]
 
     var body: some View {
         HStack(alignment: .top) {
             Text(String(rank))
+                .foregroundColor(colors[(rank - 1) % 5])
                 .font(.title2)
+                .bold()
                 .padding(.top, 7)
                 .padding(.trailing, 15)
             
