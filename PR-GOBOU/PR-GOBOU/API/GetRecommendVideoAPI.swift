@@ -41,7 +41,9 @@ class GetRecomendVideoAPI: ObservableObject{
                 fatalError()
             }
             guard httpStatus.statusCode == 200 else {
-                fatalError()
+                print(httpStatus.statusCode)
+                print("fail")
+                return
             }
             
             guard let data = data else {
@@ -49,7 +51,8 @@ class GetRecomendVideoAPI: ObservableObject{
                 return
             }
                 do {
-                    self!.recomendVideoList = try decoder.decode([VideoArticle].self, from: data)
+                    guard let me = self else { return }
+                    me.recomendVideoList = try decoder.decode([VideoArticle].self, from: data)
                     print("success")
                 } catch (let error) {
                     print("fail to decode")

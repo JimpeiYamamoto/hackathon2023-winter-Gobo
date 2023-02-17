@@ -58,7 +58,7 @@ struct RegionView: View {
     var body: some View {
         if UserDefaults.standard.object(forKey: "regionId") != nil {
             List {
-                Section(header: Text(UserDefaults.standard.object(forKey: "region") as! String + "発のプレスリリース")
+                Section(header: Text(loadRegionName())
                     .foregroundColor(Color.black)) {
                         ForEach(0..<getRegionArticleAPI.regionArticleList.count, id: \.self) { index in
                             RegionRowView(
@@ -84,6 +84,12 @@ struct RegionView: View {
 
             }
         }
+    }
+    
+    func loadRegionName() -> String{
+       guard let name = UserDefaults.standard.string(forKey: "region") else { return "居住地が未設定です"}
+        return name + "発のプレスリリース"
+        
     }
 }
 

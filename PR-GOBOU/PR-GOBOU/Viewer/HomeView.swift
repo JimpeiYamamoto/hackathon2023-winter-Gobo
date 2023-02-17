@@ -74,7 +74,8 @@ struct HomeView: View {
         
         if UserDefaults.standard.object(forKey: "followCompanyIds") != nil {
             let followCompanyIds: [Int] = UserDefaults.standard.object(forKey: "followCompanyIds") as! [Int]
-            getCompanyArticleAPI.getCompanyArticleApi(ids: followCompanyIds)
+            
+            getCompanyArticleAPI.getCompanyArticleApi(id: followCompanyIds[0])
         }
     }
 
@@ -107,7 +108,7 @@ struct HomeView: View {
 
             Section(header: Text("フォロー")
                 .foregroundColor(Color.black)) {
-                    if UserDefaults.standard.object(forKey: "followCompanyIds") != nil {
+                    if UserDefaults.standard.object(forKey: "followCompanyIds") != nil && getCompanyArticleAPI.companyArticleList.count != 0{
                         ForEach(0..<getCompanyArticleAPI.companyArticleList.count, id: \.self) { index in
                             ZStack {
                                 NavigationLink(destination: ArticleView(url: getCompanyArticleAPI.companyArticleList[index].url!)) { EmptyView() }
@@ -123,7 +124,28 @@ struct HomeView: View {
 
                             //NavigationLink(destination: ArticleView()) {}
                         }
-                    } else {
+                    } 
+                    else if getCompanyArticleAPI.companyArticleList.count == 0 {
+                        VStack(alignment: .center) {
+                            Text("ああああああああああああああああああああああああああああああああ")
+                                .foregroundColor(.clear)
+
+                            Text("現在、フォロー中の企業のリリースはありません")
+                                .frame(width:UIScreen.main.bounds.width)
+                                .font(.caption)
+                                .foregroundColor(.gray)
+
+                            Text("右上の設定ボタンから他の企業をフォローできます")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+
+                            Text("ああああああああああああああああああああああああああああああああ")
+                                .foregroundColor(.clear)
+
+                        }
+                        .frame(height: UIScreen.main.bounds.height/15)
+                    }
+                    else {
                         VStack(alignment: .center) {
                             Text("ああああああああああああああああああああああああああああああああ")
                                 .foregroundColor(.clear)
@@ -143,7 +165,7 @@ struct HomeView: View {
                         }
                         .frame(height: UIScreen.main.bounds.height/15)
                     }
-                }
+            }
 
             Section(header: Text("新着")
                 .foregroundColor(Color.black)) {
@@ -158,6 +180,7 @@ struct HomeView: View {
                                 date: getArticleAPI.latestArticleList[index].createdAt!
                             )
                         }
+
 
                         .frame(height: UIScreen.main.bounds.height/12)
 
