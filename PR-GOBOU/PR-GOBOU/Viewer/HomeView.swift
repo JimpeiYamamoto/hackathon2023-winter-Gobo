@@ -75,7 +75,7 @@ struct HomeView: View {
         if UserDefaults.standard.object(forKey: "followCompanyIds") != nil {
             let followCompanyIds: [Int] = UserDefaults.standard.object(forKey: "followCompanyIds") as! [Int]
             
-            getCompanyArticleAPI.getCompanyArticleApi(id: followCompanyIds[0])
+            getCompanyArticleAPI.getCompanyArticleApi(ids: followCompanyIds)
         }
     }
 
