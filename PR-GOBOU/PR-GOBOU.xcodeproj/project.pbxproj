@@ -86,6 +86,7 @@
 		4B8D5085299DCCD1004BA7F9 /* WriterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterView.swift; sourceTree = "<group>"; };
 		4B8D5087299DD63B004BA7F9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4B8D5089299DD6B9004BA7F9 /* RankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingView.swift; sourceTree = "<group>"; };
+		73475E9A299F1B2100C2BBEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		736AF613299E435C001C75BE /* SelectRegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionView.swift; sourceTree = "<group>"; };
 		73DD2B92299E03DF00E64644 /* Reputation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reputation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +164,7 @@
 		4B8D5056299DCA02004BA7F9 /* PR-GOBOU */ = {
 			isa = PBXGroup;
 			children = (
+				73475E9A299F1B2100C2BBEC /* Info.plist */,
 				4B8D5057299DCA02004BA7F9 /* PR_GOBOUApp.swift */,
 				4B8D5059299DCA02004BA7F9 /* ContentView.swift */,
 				4B54E21E299E2ADF00F0305B /* API */,
@@ -556,6 +558,7 @@
 				DEVELOPMENT_TEAM = G9JXCB7X2L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PR-GOBOU/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -585,6 +588,7 @@
 				DEVELOPMENT_TEAM = G9JXCB7X2L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PR-GOBOU/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
